@@ -7,6 +7,39 @@
 
 \usepackage{hyperref}
 \usepackage{url}
+\usepackage{times}  % DO NOT CHANGE THIS
+\usepackage{helvet} % DO NOT CHANGE THIS
+\usepackage{courier}  % DO NOT CHANGE THIS
+\usepackage{graphicx} % DO NOT CHANGE THIS
+\urlstyle{rm} % DO NOT CHANGE THIS
+\def\UrlFont{\rm}  % DO NOT CHANGE THIS
+
+\newtheorem{definition}{Definition}
+
+\usepackage{listings}
+
+\usepackage{multirow}
+\usepackage{array}
+\newcolumntype{L}{>{\centering\arraybackslash}m{7cm}}
+\newcolumntype{Q}{>{\centering\arraybackslash}m{5
+cm}}
+\lstset
+{ %Formatting for code in appendix
+    language=Java,
+    frame=single,
+    morekeywords={?},
+    basicstyle=\footnotesize,
+    numbers=left,
+    stepnumber=1,
+    showstringspaces=false,
+    tabsize=1,
+    breaklines=true,
+    breakatwhitespace=false,
+    moredelim=**[is][\color{red}]{@}{@},
+    moredelim=**[is][\color{blue}]{^}{^},
+}
+
+\usepackage{xcolor}
 
 
 \title{InvocMap: Mapping Method Names to Method Invocations via Machine Learning}
@@ -40,8 +73,6 @@
 \input{Experiments}
 \input{RelatedWorks}
 \clearpage
-
-
 \bibliography{iclr2020_conference}
 \bibliographystyle{iclr2020_conference}
 

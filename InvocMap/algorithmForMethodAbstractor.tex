@@ -1,0 +1,68 @@
+\begin{lstlisting}[basicstyle=\tiny,caption={Algorithm for Method Invocation Abstraction},label={lt:AlgorithmMethodAbstractor}]
+AST_Level3 abstractMethodInvocation(
+		mi : MethodInvocation ,
+		dictionaryAST : Set<AST_Level3>,
+		visitor : MICVisitor) {
+	AST_Level3 result=new AST_Level3(mi);		
+	visitor.result=result;
+	
+	//visit receiver if exist
+	Expression receiverExpr=getReceiver(mi);		
+	if(receiverExpr not null)
+		visitor.visit(receiverExpr);
+	
+	// add method name and open parenthesis
+	result.strCode.append(getMethodName(mi)+"(");
+	
+	// visit content of arguments
+	Expression[] listArguments=getParams(mi);		
+	for each Expression argExpr in listArguments:
+		visitor.visit(argExpr);
+	
+	// add close parenthesis
+	result.strCode.append(")");
+
+	// set uniqueId
+	setUniqueId(result,dictionaryAST);
+	
+	return result;		
+}
+...
+class AST_Level3 {
+	// field to store AST in level 3
+	strCode : String;
+
+	// Other informations need to 
+	//	add to get final code
+	listArguments : List<Type>;
+	setImportedAPIs : Set<Type>;	
+	strSignature : Type;
+
+	// id is created by the uniqueness of 4 other fields 
+	uniqueId : String;
+	
+}
+...
+class MICVisitor extends ASTVisitor{
+	result : AST_level3;
+	...		
+	void visit(ASTNode node) {
+		/*
+		 * If visit local entity,
+		 * mark as a place holder
+		 * in the AST structure
+		 */
+		if(isLocalEntity(node)) {
+			result.strCode.append("#");
+			result.listArguments.append(getType(node));				
+		} 
+		else  {	
+			// visit structure and update result
+			// can be recursive if node have children nodes
+			visitStructure(node);
+		} 			
+		// In every cases, add type of node to set of imported APIs
+		result.setImportedAPIs.add(getType(node));		
+	}	
+}
+\end{lstlisting}
