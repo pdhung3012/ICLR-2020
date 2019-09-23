@@ -1,0 +1,66 @@
+\section{Introduction}
+Writing code is a challenge for non-experienced software developers. To write the code that implements a specific task in a programming language, developers need to remember the syntax of that language and be familiar with how to implement method invocations. While the syntax of the language is easier to learn since it contains a permanent set of words in the vocabulary, implementing Method Invocations (MI)s is more challenging due to the following reasons. First, developers need to remember the structure and the combination of invocations depending on their purpose. Second, the implementation of method invocation is also depending on the surrounding context of the code. These challenges cause the code developed by non-experience developers to be in the risks of being semantic error.
+
+To help developers with interacting and analyzing a given Java source code snippet, Java Development Tool (JDT) library defines a list of Abstract Syntax Tree (AST) Node types \cite{id:ASTDocumentation}. With the list of these AST Node types, JDT can be able to interact with the structure of each elements inside the source code. Method invocation, which is defined as sub-type of Expression, is one of the fundamental AST Node that developers need to implement. MI has been used to make Application Programming Interface (API) calls from other libraries or from other methods inside a Java project.  The structure of a syntactically correct MI contains method name, receiver and the list of arguments which could be empty. Since receiver and arguments are types of expression \cite{id:ASTDocumentation}, the structure of an MI could be complicated as a deep AST tree since expression can be composed by different types of AST Node including MI. 
+
+\begin{lstlisting}[basicstyle=\tiny,caption={Example of invocation of API \texttt{java.awt.Rectangle.set()} in \cite{id:Example11Complicate}},label={Example11Complicate}]
+ public void setOffsets(int newHorizontalOffset, int newVerticalOffset) {
+    ...
+        if (mView != null) {
+            ...
+            invalidateRectf.offset(-xoffset, -yoffset);
+            @invalidateRect.set((int) Math.floor(invalidateRectf.left),(int) Math.floor(invalidateRectf.top),(int) Math.ceil(invalidateRectf.right),(int) Math.ceil(invalidateRectf.bottom))@;
+            ...
+        }
+    ...
+}
+\end{lstlisting}
+
+An example of a complicated MI is shown in Listing \ref{Example11Complicate}. In this Listing, the outside MI contains four nested MI in its implementation. Besides, there are 5 positions that requires local variables inside the expression. Type casting to integer is embedded to this MI to provide a semantically correct MI. This MI is used along with other calculated MIs inside the body of method, providing the a specific surrounding context for this MI. Certainly, though the outer method name \texttt{set} is just one word, the respected method invocation is a deep AST tree.
+
+The representation of method invocation is also depending on code context. Consider examples 2A and 2B on Listing  \ref{ex:Example12A} and Listing \ref{ex:Example12B}. These Listings show the implementation of API \texttt{android.content.Intent.getBooleanExtra()}. Although 2 MIs share the same information about context of using the same local variable \texttt{Intent} and the \texttt{false} boolean literal, they are differ in the structure of AST. Since the MI in Listing \ref{ex:Example12A} associates with the action of add or remove an application package from an android device, the MI on Listing \ref{ex:Example12B} associates with actions of network status checking. The difference in contexts brings 2 MIs, which represents in 2 static Field Accesses \texttt{Intent.EXTRA\_REPLACING} and \texttt{ConnectivityManager.EXTRA\_NO\_CONNECTIVITY}.   
+
+\begin{lstlisting}[basicstyle=\tiny,caption={Example 2A of invocation of API \texttt{android.content.Intent.getBooleanExtra()} in \cite{id:Example12A}},label={ex:Example12A},]
+ public void onReceive(Context context, Intent intent) {
+    ...
+    if ((Intent.ACTION_PACKAGE_REMOVED.equals(action) ||
+            Intent.ACTION_PACKAGE_ADDED.equals(action))
+            && !@intent.getBooleanExtra(Intent.EXTRA_REPLACING, false)@) {
+        ...
+    }
+}
+\end{lstlisting}
+
+
+
+
+\begin{lstlisting}[basicstyle=\tiny,caption={Example 2B of invocation of API \texttt{android.content.Intent.getBooleanExtra()} in \cite{id:Example12B}},label={ex:Example12B}]
+public void onReceive(Context context, Intent intent) {
+    ...
+    if (activeNetwork == null) {
+        ...
+    } else if (activeNetwork.getType() == networkType) {
+        mNetworkUnmetered = false;
+        mNetworkConnected = !@intent.getBooleanExtra(ConnectivityManager.EXTRA_NO_CONNECTIVITY, false)@;
+        ...
+    }
+    
+}
+\end{lstlisting}
+
+From these examples, we see that implementing an effective method invocation requires strong background and experiences from developers. Even two Method Invocations that belongs to the same API and share the same context of local variables and literal stills have ambiguous in the way of implementation like Listing \ref{ex:Example12A} and Listing \ref{ex:Example12B}. These challenges hinders the ability of writing a appropriate MI and cause developers to spend time to remember or finding the correct structure of AST in MI for software development.
+
+In this work, we want to tackle this problem by providing InvocMap, a code completion tool for helping developers to achieve the implementation of method invocation efficiently. InvocMap accepts input as a sequence of method names inside the code environment of a method declaration, then produce the output as the list of ASTs as translation results for each input method names. The generated ASTs will only require developers to input information about local variables and literals to get the complete code. For example, in Listing \ref{ex:Example12A}, developer can write the list of method names including the name \texttt{getBooleanExtra}. The output for the suggestion for \texttt{set} will be \texttt{\#.getBooleanExtra( Intent.EXTRA\_REPLACING,\#)}, which can be completed manually by a variable of type \texttt{android.content.Intent} in the first \texttt{"\#"} and a boolean literal in the second \texttt{"\#"}.
+
+Statistical Machine Translation (SMT) is a well-known approach in Natural Language Processing (NLP) for translating between languages \cite{Green2014}. To take advantage from SMT, we propose a direction for code completion for Method Invocation by a Statistical approach, which learn the translation from the abstract information of MIs to the their detail information, which are represented by AST with complicate structure. First, we analyze the information inside a typical MI. We divide the MI by four levels of abstraction. We also define information of context for each MI which can help to predict the AST structure. Next, we build an SMT engine specified for our work to infer from the very abstract layer of MI, means Method Name, to the third level of MI, which is an AST tree that requires to be fulfill by local variables and literals. To evaluate our approach, we do experiments to check the accuracy of our code completion technique in two datasets collected from Github and from online forums. 
+This paper has following contributions:
+\begin{enumerate}
+  \item Design a strategy for classifying Method Invocation by levels of abstraction, from very abstract to details level.
+  \item Design rules for extracting code tokens for representing abstract level and details level for various types of AST nodes.
+  \item Proposing an algorithm for visiting an method invocation inside the code environment to abstract and encode their structure in AST as an object for statistical learning.
+  \item Building a Phrase based Statistical Machine Translation (PBMT) system for learning from the context of code environment, including Method Invocations from large scale Github high quality projects. This PBMT system is able to predict the sequences of AST structure given sequences of method name and context.  
+\end{enumerate}
+Resources of this paper can be found at \cite{id:InvocMap}.
+
+
+
