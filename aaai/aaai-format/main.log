@@ -1,0 +1,589 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/MacPorts 2017_2) (preloaded format=pdflatex 2018.3.5)  23 SEP 2019 12:06
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**main.tex
+(./main.tex
+LaTeX2e <2017-04-15>
+Babel <3.10> and hyphenation patterns for 14 language(s) loaded.
+(/opt/local/share/texmf-texlive/tex/latex/base/article.cls
+Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
+(/opt/local/share/texmf-texlive/tex/latex/base/size10.clo
+File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+) (./aaai20.sty
+Conference Style for AAAI for LaTeX 2e -- version for the AAAI-20 conference
+\titlebox=\skip43
+) (/opt/local/share/texmf-texlive/tex/latex/psnfss/times.sty
+Package: times 2005/04/12 PSNFSS-v9.2a (SPQR) 
+)
+(/opt/local/share/texmf-texlive/tex/latex/psnfss/helvet.sty
+Package: helvet 2005/04/12 PSNFSS-v9.2a (WaS) 
+
+(/opt/local/share/texmf-texlive/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks14
+))
+(/opt/local/share/texmf-texlive/tex/latex/psnfss/courier.sty
+Package: courier 2005/04/12 PSNFSS-v9.2a (WaS) 
+)
+(/opt/local/share/texmf-texlive/tex/latex/url/url.sty
+\Urlmuskip=\muskip10
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+(/opt/local/share/texmf-texlive/tex/latex/graphics/graphicx.sty
+Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/opt/local/share/texmf-texlive/tex/latex/graphics/graphics.sty
+Package: graphics 2017/04/14 v1.1b Standard LaTeX Graphics (DPC,SPQR)
+
+(/opt/local/share/texmf-texlive/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(/opt/local/share/texmf-texlive/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 99.
+
+(/opt/local/share/texmf-texlive/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2017/01/12 v0.06k Graphics/color for pdfTeX
+
+(/opt/local/share/texmf-texlive/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+)
+(/opt/local/share/texmf-texlive/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count87
+))
+\Gin@req@height=\dimen103
+\Gin@req@width=\dimen104
+)
+\c@definition=\count88
+
+(/opt/local/share/texmf-texlive/tex/latex/listings/listings.sty
+\lst@mode=\count89
+\lst@gtempboxa=\box26
+\lst@token=\toks15
+\lst@length=\count90
+\lst@currlwidth=\dimen105
+\lst@column=\count91
+\lst@pos=\count92
+\lst@lostspace=\dimen106
+\lst@width=\dimen107
+\lst@newlines=\count93
+\lst@lineno=\count94
+\lst@maxwidth=\dimen108
+
+(/opt/local/share/texmf-texlive/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
+\c@lstnumber=\count95
+\lst@skipnumbers=\count96
+\lst@framebox=\box27
+)
+(/opt/local/share/texmf-texlive/tex/latex/listings/listings.cfg
+File: listings.cfg 2015/06/04 1.6 listings configuration
+))
+Package: listings 2015/06/04 1.6 (Carsten Heinz)
+
+(/opt/local/share/texmf-texlive/tex/latex/multirow/multirow.sty
+Package: multirow 2016/11/25 v2.2 Span multiple rows of a table
+\multirow@colwidth=\skip44
+\multirow@cntb=\count97
+\multirow@dima=\skip45
+\bigstrutjot=\dimen109
+)
+(/opt/local/share/texmf-texlive/tex/latex/tools/array.sty
+Package: array 2016/10/06 v2.4d Tabular extension package (FMi)
+\col@sep=\dimen110
+\extrarowheight=\dimen111
+\NC@list=\toks16
+\extratabsurround=\skip46
+\backup@length=\skip47
+)
+(/opt/local/share/texmf-texlive/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2015/06/04 1.6 listings language file
+)
+(/opt/local/share/texmf-texlive/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
+
+(/opt/local/share/texmf-texlive/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
+Package xcolor Info: Model `RGB' extended on input line 1364.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
+) (./main.aux)
+\openout1 = `main.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 56.
+(/opt/local/share/texmf-texlive/tex/latex/psnfss/ot1ptm.fd
+File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
+)
+(/opt/local/share/texmf-texlive/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count98
+\scratchdimen=\dimen112
+\scratchbox=\box28
+\nofMPsegments=\count99
+\nofMParguments=\count100
+\everyMPshowfont=\toks17
+\MPscratchCnt=\count101
+\MPscratchDim=\dimen113
+\MPnumerator=\count102
+\makeMPintoPDFobject=\count103
+\everyMPtoPDFconversion=\toks18
+) (/opt/local/share/texmf-texlive/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2017/03/19 v0.25 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/opt/local/share/texmf-texlive/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+(/opt/local/share/texmf-texlive/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(/opt/local/share/texmf-texlive/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
+
+(/opt/local/share/texmf-texlive/tex/latex/oberdiek/grfext.sty
+Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
+
+(/opt/local/share/texmf-texlive/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
+))
+(/opt/local/share/texmf-texlive/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
+
+(/opt/local/share/texmf-texlive/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
+
+(/opt/local/share/texmf-texlive/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+38.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 456.
+
+(/opt/local/share/texmf-texlive/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+\c@lstlisting=\count104
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 58.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 58.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 58.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 58.
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 58.
+
+(/opt/local/share/texmf-texlive/tex/latex/psnfss/omsptm.fd
+File: omsptm.fd 
+)
+LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <9> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 58.
+ (./Abstract.tex
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1.
+)
+(./Introduction.tex
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 6.
+ (/opt/local/share/texmf-texlive/tex/latex/psnfss/ot1pcr.fd
+File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
+)
+Underfull \hbox (badness 10000) in paragraph at lines 6--6
+[]\OT1/ptm/m/n/10 Listing 1: Ex-am-ple of in-vo-ca-tion of API
+ []
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 7.
+LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <6> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 7.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 11.
+
+Underfull \hbox (badness 10000) in paragraph at lines 21--22
+[]\OT1/ptm/m/n/10 The rep-re-sen-ta-tion of method in-vo-ca-tion is
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 21--22
+\OT1/ptm/m/n/10 also de-pend-ing on code con-text. Con-sider ex-
+ []
+
+
+Underfull \hbox (badness 7362) in paragraph at lines 21--22
+\OT1/ptm/m/n/10 am-ples 2A and 2B on List-ing 2[] and List-ing 3[].
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 21--22
+\OT1/ptm/m/n/10 These List-ings show the im-ple-men-ta-tion of API
+ []
+
+
+Overfull \hbox (3.10562pt too wide) in paragraph at lines 21--22
+\OT1/pcr/m/n/10 android.content.Intent.getBooleanExtra()\OT1/ptm/m/n/10 .
+ []
+
+
+Underfull \hbox (badness 3138) in paragraph at lines 21--22
+\OT1/pcr/m/n/10 false \OT1/ptm/m/n/10 boolean lit-eral, they are dif-fer in the
+ struc-
+ []
+
+
+Underfull \hbox (badness 2538) in paragraph at lines 21--22
+\OT1/ptm/m/n/10 the ac-tion of add or re-move an ap-pli-ca-tion pack-age
+ []
+
+
+Underfull \hbox (badness 3029) in paragraph at lines 21--22
+\OT1/ptm/m/n/10 with ac-tions of net-work sta-tus check-ing. The dif-fer-
+ []
+
+
+Underfull \hbox (badness 1237) in paragraph at lines 21--22
+\OT1/ptm/m/n/10 ence in con-texts brings 2 MIs, which rep-re-sents in 2
+ []
+
+
+Overfull \hbox (4.30563pt too wide) in paragraph at lines 21--22
+\OT1/pcr/m/n/10 ConnectivityManager.EXTRA[]NO[]CONNECTIVITY\OT1/ptm/m/n/10 . 
+ []
+
+[1{/opt/local/var/db/texmf/fonts/map/pdftex/updmap/pdftex.map}
+
+
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 23--23
+[]\OT1/ptm/m/n/10 Listing 2: Ex-am-ple 2A of in-vo-ca-tion of API
+ []
+
+
+Overfull \hbox (0.60562pt too wide) in paragraph at lines 23--23
+\OT1/pcr/m/n/10 android.content.Intent.getBooleanExtra()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+[]\OT1/ptm/m/n/10 Listing 3: Ex-am-ple 2B of in-vo-ca-tion of API
+ []
+
+
+Overfull \hbox (0.60562pt too wide) in paragraph at lines 37--37
+\OT1/pcr/m/n/10 android.content.Intent.getBooleanExtra()
+ []
+
+
+Underfull \hbox (badness 2334) in paragraph at lines 53--54
+\OT1/ptm/m/n/10 sug-ges-tion for \OT1/pcr/m/n/10 set \OT1/ptm/m/n/10 will be \O
+T1/pcr/m/n/10 #.getBooleanExtra(
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 53--54
+\OT1/pcr/m/n/10 Intent.EXTRA[]REPLACING,#)\OT1/ptm/m/n/10 , which can
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 53--54
+\OT1/ptm/m/n/10 be com-pleted man-u-ally by a vari-able of type
+ []
+
+
+Underfull \hbox (badness 1087) in paragraph at lines 53--54
+\OT1/pcr/m/n/10 android.content.Intent \OT1/ptm/m/n/10 in the first \OT1/pcr/m/
+n/10 "#" \OT1/ptm/m/n/10 and a
+ []
+
+) (./Method.tex
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 2.
+ <ApproachOverview.png, id=11, 883.1394pt x 264.99pt>
+File: ApproachOverview.png Graphic file (type png)
+
+<use ApproachOverview.png>
+Package pdftex.def Info: ApproachOverview.png used on input line 5.
+(pdftex.def)             Requested size: 505.89pt x 151.7939pt.
+ [2]
+Underfull \hbox (badness 5302) in paragraph at lines 29--31
+[]\OT1/ptm/m/n/10 An ex-am-ple of how we see 4 lev-els is shown
+ []
+
+
+Underfull \hbox (badness 6110) in paragraph at lines 29--31
+\OT1/ptm/m/n/10 in Fig-ure 2[]. In this code snip-pet, we have level
+ []
+
+
+Underfull \hbox (badness 4132) in paragraph at lines 29--31
+\OT1/ptm/m/n/10 1 as method name \OT1/pcr/m/n/10 println\OT1/ptm/m/n/10 . The l
+evel 2 of ab-
+ []
+
+
+Underfull \hbox (badness 3179) in paragraph at lines 29--31
+\OT1/ptm/m/n/10 strac-tion brings us in-for-ma-tion about type, which is
+ []
+
+[3 <./ApproachOverview.png>]
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 47.
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <9> on input line 51.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 53.
+
+Underfull \hbox (badness 2478) in paragraph at lines 72--73
+ \OT1/ptm/b/n/10 Source and Tar-get To-kens for Method In-vo-ca-tions
+ []
+
+
+Underfull \hbox (badness 2662) in paragraph at lines 75--76
+ \OT1/ptm/b/n/10 Method In-vo-ca-tion Ab-strac-tion \OT1/ptm/m/n/10 We get in-f
+or-ma-tion
+ []
+
+
+Underfull \hbox (badness 1331) in paragraph at lines 75--76
+\OT1/ptm/m/n/10 in List-ing 4[]. The \OT1/pcr/m/n/10 abstractMethodInvocation()
+
+ []
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 77.
+
+<images/example_source_target.png, id=21, 682.55pt x 594.22pt>
+File: images/example_source_target.png Graphic file (type png)
+
+<use images/example_source_target.png>
+Package pdftex.def Info: images/example_source_target.png used on input line 79
+.
+(pdftex.def)             Requested size: 191.51622pt x 166.725pt.
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 85.
+
+<images/methodDescription_example.png, id=22, 823.075pt x 215.80624pt>
+File: images/methodDescription_example.png Graphic file (type png)
+
+<use images/methodDescription_example.png>
+Package pdftex.def Info: images/methodDescription_example.png used on input lin
+e 87.
+(pdftex.def)             Requested size: 239.39438pt x 62.7666pt.
+ (./algorithmForMethodAbstractor.tex
+LaTeX Font Info:    Try loading font information for OML+ptm on input line 4.
+
+(/opt/local/share/texmf-texlive/tex/latex/psnfss/omlptm.fd
+File: omlptm.fd 
+)
+LaTeX Font Info:    Font shape `OML/ptm/m/n' in size <6> not available
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 4.
+LaTeX Font Info:    Font shape `OMS/ptm/m/it' in size <6> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 50.
+ [4 <./images/example_source_target.png> <./images/methodDescription_example.pn
+g>])
+
+LaTeX Font Warning: Command \small invalid in math mode on input line 101.
+
+LaTeX Font Info:    Calculating math sizes for size <> on input line 104.
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <> not available
+(Font)              size <5> substituted on input line 104.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <0.7> not available
+(Font)              size <5> substituted on input line 104.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <0.5> not available
+(Font)              size <5> substituted on input line 104.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <> not available
+(Font)              size <5> substituted on input line 104.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <0.7> not available
+(Font)              size <5> substituted on input line 104.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <0.5> not available
+(Font)              size <5> substituted on input line 104.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <> not available
+(Font)              size <5> substituted on input line 104.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <0.7> not available
+(Font)              size <5> substituted on input line 104.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <0.5> not available
+(Font)              size <5> substituted on input line 104.
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <> on input line 104.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <0.7> on input line 104.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <0.5> on input line 104.
+
+Underfull \hbox (badness 10000) in paragraph at lines 104--106
+
+ []
+
+
+LaTeX Font Warning: Command \small invalid in math mode on input line 113.
+
+) (./Experiments.tex
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 4.
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 27.
+
+
+Underfull \hbox (badness 1558) in paragraph at lines 50--51
+\OT1/ptm/m/n/10 trans-la-tion en-gine needs to re-turn as MI re-spected to
+ []
+
+[5]
+Underfull \hbox (badness 1132) in paragraph at lines 53--54
+ \OT1/ptm/b/n/10 Met-rics \OT1/ptm/m/n/10 We eval-u-ate the cor-rect in-fer-enc
+e of method
+ []
+
+
+Underfull \hbox (badness 1189) in paragraph at lines 53--54
+\OT1/ptm/m/n/10 names. In-for-ma-tion about to-kens of method name can
+ []
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 113.
+
+<images/example_in.png, id=41, 921.4425pt x 323.2075pt>
+File: images/example_in.png Graphic file (type png)
+
+<use images/example_in.png>
+Package pdftex.def Info: images/example_in.png used on input line 115.
+(pdftex.def)             Requested size: 239.39438pt x 83.96785pt.
+ [6 <./images/example_in.png>]
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 171.
+
+
+LaTeX Font Warning: Font shape `OML/ptm/bx/n' undefined
+(Font)              using `OML/ptm/m/it' instead
+(Font)              for symbol `textgreater' on input line 177.
+
+LaTeX Font Info:    Font shape `OML/ptm/m/it' in size <9> not available
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 177.
+
+Overfull \hbox (18.52817pt too wide) in paragraph at lines 174--189
+[][] 
+ []
+
+) (./RelatedWorks.tex [7]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+) [8]
+(./main.bbl) [9
+
+] (./main.aux)
+
+LaTeX Font Warning: Size substitutions with differences
+(Font)              up to 4.5pt have occurred.
+
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 3779 strings out of 494369
+ 53603 string characters out of 6171240
+ 259207 words of memory out of 5000000
+ 7017 multiletter control sequences out of 15000+600000
+ 25378 words of font info for 47 fonts, out of 8000000 for 9000
+ 452 hyphenation exceptions out of 8191
+ 39i,11n,40p,1544b,1489s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/opt/local/share/texmf-texlive/fonts/enc/dvips/base/8r.enc}</opt/local/share
+/texmf-texlive/fonts/type1/public/amsfonts/cm/cmex10.pfb></opt/local/share/texm
+f-texlive/fonts/type1/public/amsfonts/cm/cmmi10.pfb></opt/local/share/texmf-tex
+live/fonts/type1/public/amsfonts/cm/cmmi6.pfb></opt/local/share/texmf-texlive/f
+onts/type1/public/amsfonts/cm/cmmi7.pfb></opt/local/share/texmf-texlive/fonts/t
+ype1/public/amsfonts/cm/cmmi9.pfb></opt/local/share/texmf-texlive/fonts/type1/p
+ublic/amsfonts/cm/cmr10.pfb></opt/local/share/texmf-texlive/fonts/type1/public/
+amsfonts/cm/cmr6.pfb></opt/local/share/texmf-texlive/fonts/type1/public/amsfont
+s/cm/cmr7.pfb></opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cm
+r9.pfb></opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pf
+b></opt/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy6.pfb></op
+t/local/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy9.pfb></opt/loca
+l/share/texmf-texlive/fonts/type1/urw/courier/ucrr8a.pfb></opt/local/share/texm
+f-texlive/fonts/type1/urw/times/utmb8a.pfb></opt/local/share/texmf-texlive/font
+s/type1/urw/times/utmr8a.pfb></opt/local/share/texmf-texlive/fonts/type1/urw/ti
+mes/utmri8a.pfb>
+Output written on main.pdf (9 pages, 749373 bytes).
+PDF statistics:
+ 108 PDF objects out of 1000 (max. 8388607)
+ 72 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+

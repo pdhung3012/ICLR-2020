@@ -1,0 +1,193 @@
+\begin{thebibliography}{}
+
+\bibitem[\protect\citeauthoryear{Allamanis \bgroup et al\mbox.\egroup
+  }{2018}]{Allamanis:2018:SML:3236632.3212695}
+Allamanis, M.; Barr, E.~T.; Devanbu, P.; and Sutton, C.
+\newblock 2018.
+\newblock A survey of machine learning for big code and naturalness.
+\newblock {\em ACM Comput. Surv.} 51(4):81:1--81:37.
+
+\bibitem[\protect\citeauthoryear{Android}{2019a}]{id:Example12A}
+Android, P.
+\newblock 2019a.
+\newblock Example of method onreceive() in the android project.
+\newblock \url{https://tinyurl.com/y49cxygr}.
+
+\bibitem[\protect\citeauthoryear{Android}{2019b}]{id:Example12B}
+Android, P.
+\newblock 2019b.
+\newblock Example of method onreceive() in the android project.
+\newblock \url{https://tinyurl.com/y334wqyw}.
+
+\bibitem[\protect\citeauthoryear{Android}{2019c}]{id:Example11Complicate}
+Android, P.
+\newblock 2019c.
+\newblock Example of method set() in the android project.
+\newblock \url{https://tinyurl.com/yy9ge34m}.
+
+\bibitem[\protect\citeauthoryear{Barone and
+  Sennrich}{2017}]{DBLP:journals/corr/BaroneS17}
+Barone, A. V.~M., and Sennrich, R.
+\newblock 2017.
+\newblock A parallel corpus of python functions and documentation strings for
+  automated code documentation and code generation.
+\newblock {\em CoRR} abs/1707.02275.
+
+\bibitem[\protect\citeauthoryear{Eclipse}{2019}]{id:ASTDocumentation}
+Eclipse.
+\newblock 2019.
+\newblock Abstract syntax tree documentation.
+\newblock \url{https://tinyurl.com/y3gbe6jx}.
+
+\bibitem[\protect\citeauthoryear{GeeksForGeeks}{2019}]{id:GeeksForGeeks}
+GeeksForGeeks.
+\newblock 2019.
+\newblock Geeksforgeeks online forum.
+\newblock \url{https://www.geeksforgeeks.org}.
+
+\bibitem[\protect\citeauthoryear{Github}{2019}]{id:Github}
+Github.
+\newblock 2019.
+\newblock Github repository.
+\newblock \url{https://github.com}.
+
+\bibitem[\protect\citeauthoryear{Green, Cer, and Manning}{2014}]{Green2014}
+Green, S.; Cer, D.; and Manning, C.~D.
+\newblock 2014.
+\newblock Phrasal: A toolkit for new directions in statistical machine
+  translation.
+\newblock In {\em In Proceddings of the Ninth Workshop on Statistical Machine
+  Translation}.
+
+\bibitem[\protect\citeauthoryear{Gu \bgroup et al\mbox.\egroup
+  }{2016}]{Gu:2016:DAL:2950290.2950334}
+Gu, X.; Zhang, H.; Zhang, D.; and Kim, S.
+\newblock 2016.
+\newblock Deep api learning.
+\newblock In {\em Proceedings of the 2016 24th ACM SIGSOFT International
+  Symposium on Foundations of Software Engineering}, FSE 2016,  631--642.
+\newblock New York, NY, USA: ACM.
+
+\bibitem[\protect\citeauthoryear{Gvero and
+  Kuncak}{2015}]{Gvero:2015:SJE:2814270.2814295}
+Gvero, T., and Kuncak, V.
+\newblock 2015.
+\newblock Synthesizing java expressions from free-form queries.
+\newblock In {\em Proceedings of the 2015 ACM SIGPLAN International Conference
+  on Object-Oriented Programming, Systems, Languages, and Applications}, OOPSLA
+  2015,  416--432.
+\newblock New York, NY, USA: ACM.
+
+\bibitem[\protect\citeauthoryear{{Hellendoorn}, {Devanbu}, and
+  {Bacchelli}}{2015}]{Hel:7180076}
+{Hellendoorn}, V.~J.; {Devanbu}, P.~T.; and {Bacchelli}, A.
+\newblock 2015.
+\newblock Will they like this? evaluating code contributions with language
+  models.
+\newblock In {\em 2015 IEEE/ACM 12th Working Conference on Mining Software
+  Repositories},  157--167.
+
+\bibitem[\protect\citeauthoryear{Hindle \bgroup et al\mbox.\egroup
+  }{2012}]{Hindle:2012:NS:2337223.2337322}
+Hindle, A.; Barr, E.~T.; Su, Z.; Gabel, M.; and Devanbu, P.
+\newblock 2012.
+\newblock On the naturalness of software.
+\newblock In {\em Proceedings of the 34th International Conference on Software
+  Engineering}, ICSE '12,  837--847.
+\newblock Piscataway, NJ, USA: IEEE Press.
+
+\bibitem[\protect\citeauthoryear{InvocMap}{2019}]{id:InvocMap}
+InvocMap.
+\newblock 2019.
+\newblock Invocmap data.
+\newblock \url{https://tinyurl.com/y387n6xq}.
+
+\bibitem[\protect\citeauthoryear{Jurafsky and
+  Martin}{2009}]{Jurafsky:2009:SLP:1214993}
+Jurafsky, D., and Martin, J.~H.
+\newblock 2009.
+\newblock {\em Speech and Language Processing (2Nd Edition)}.
+\newblock Upper Saddle River, NJ, USA: Prentice-Hall, Inc.
+
+\bibitem[\protect\citeauthoryear{Koehn, Och, and
+  Marcu}{2003}]{Koehn:2003:SPT:1073445.1073462}
+Koehn, P.; Och, F.~J.; and Marcu, D.
+\newblock 2003.
+\newblock Statistical phrase-based translation.
+\newblock In {\em Proceedings of the 2003 Conference of the North American
+  Chapter of the Association for Computational Linguistics on Human Language
+  Technology - Volume 1}, NAACL '03,  48--54.
+\newblock Stroudsburg, PA, USA: Association for Computational Linguistics.
+
+\bibitem[\protect\citeauthoryear{{Liu}}{2016}]{Liu:7883371}
+{Liu}, H.
+\newblock 2016.
+\newblock Towards better program obfuscation: Optimization via language models.
+\newblock In {\em 2016 IEEE/ACM 38th International Conference on Software
+  Engineering Companion (ICSE-C)},  680--682.
+
+\bibitem[\protect\citeauthoryear{Nexus}{2019}]{id:IntrinsicAndroidExample}
+Nexus.
+\newblock 2019.
+\newblock nexu android framwork base example.
+\newblock \url{https://tinyurl.com/y2ggtgj7}.
+
+\bibitem[\protect\citeauthoryear{{Nguyen} \bgroup et al\mbox.\egroup
+  }{2012}]{6227236}
+{Nguyen}, A.~T.; {Nguyen}, H.~A.; {Nguyen}, T.~T.; and {Nguyen}, T.~N.
+\newblock 2012.
+\newblock Grapacc: A graph-based pattern-oriented, context-sensitive code
+  completion tool.
+\newblock In {\em 2012 34th International Conference on Software Engineering
+  (ICSE)},  1407--1410.
+
+\bibitem[\protect\citeauthoryear{{Nguyen}, {Nguyen}, and
+  {Nguyen}}{2015}]{7372046}
+{Nguyen}, A.~T.; {Nguyen}, T.~T.; and {Nguyen}, T.~N.
+\newblock 2015.
+\newblock Divide-and-conquer approach for multi-phase statistical migration for
+  source code (t).
+\newblock In {\em 2015 30th IEEE/ACM International Conference on Automated
+  Software Engineering (ASE)},  585--596.
+
+\bibitem[\protect\citeauthoryear{Pascarella and
+  Bacchelli}{2017}]{Pascarella:2017:CCC:3104188.3104217}
+Pascarella, L., and Bacchelli, A.
+\newblock 2017.
+\newblock Classifying code comments in java open-source software systems.
+\newblock In {\em Proceedings of the 14th International Conference on Mining
+  Software Repositories}, MSR '17,  227--237.
+\newblock Piscataway, NJ, USA: IEEE Press.
+
+\bibitem[\protect\citeauthoryear{{Phan} \bgroup et al\mbox.\egroup
+  }{2018}]{8453132}
+{Phan}, H.; {Nguyen}, H.; {Tran}, N.; {Truong}, L.; {Nguyen}, A.; and {Nguyen},
+  T.
+\newblock 2018.
+\newblock Statistical learning of api fully qualified names in code snippets of
+  online forums.
+\newblock In {\em 2018 IEEE/ACM 40th International Conference on Software
+  Engineering (ICSE)},  632--642.
+
+\bibitem[\protect\citeauthoryear{ProgramCreek}{2019}]{id:ProgramCreek}
+ProgramCreek.
+\newblock 2019.
+\newblock Programcreek online forum.
+\newblock \url{https://www.programcreek.com}.
+
+\bibitem[\protect\citeauthoryear{StackOverflow}{2019}]{id:StackOverflow}
+StackOverflow.
+\newblock 2019.
+\newblock Stackoverflow online forum.
+\newblock \url{https://stackoverflow.com/}.
+
+\bibitem[\protect\citeauthoryear{Subramanian, Inozemtseva, and
+  Holmes}{2014}]{Subramanian:2014:LAD:2568225.2568313}
+Subramanian, S.; Inozemtseva, L.; and Holmes, R.
+\newblock 2014.
+\newblock Live api documentation.
+\newblock In {\em Proceedings of the 36th International Conference on Software
+  Engineering}, ICSE 2014,  643--652.
+\newblock New York, NY, USA: ACM.
+
+\end{thebibliography}

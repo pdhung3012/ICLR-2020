@@ -1,0 +1,16 @@
+\begin{lstlisting}[basicstyle=\small,caption={Example A of invocation of API \texttt{android.content.Intent.getBooleanExtra()} in \cite{id:Example12A}},label={ex:Example12A},10pt]
+...if (( @equals@ || @equals@ )
+&& ! @getBooleanExtra@ )...
+\end{lstlisting}
+
+\begin{lstlisting}[basicstyle=\small,caption={Example A of invocation of API \texttt{android.content.Intent.getBooleanExtra()} in \cite{id:Example12A}},label={ex:Example12A},10pt]
+...if ((@Intent.ACTION_PACKAGE_REMOVED.equals(?)@ ||
+@Intent.ACTION_PACKAGE_ADDED.equals(?)@)
+&& !@?.getBooleanExtra(Intent.EXTRA_REPLACING, ?)@)... 
+\end{lstlisting}
+
+\begin{lstlisting}[basicstyle=\small,caption={Example A of invocation of API \texttt{android.content.Intent.getBooleanExtra()} in \cite{id:Example12A}},label={ex:Example12A},10pt]
+...if ((@Intent.ACTION_PACKAGE_REMOVED.equals(action)@ ||
+@Intent.ACTION_PACKAGE_ADDED.equals(action)@)
+&& !@intent.getBooleanExtra(Intent.EXTRA_REPLACING, false)@) ...
+\end{lstlisting}

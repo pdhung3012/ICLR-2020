@@ -1,0 +1,70 @@
+\def\year{2020}\relax
+%File: formatting-instruction.tex
+\documentclass[letterpaper]{article} % DO NOT CHANGE THIS
+\usepackage{aaai20}  % DO NOT CHANGE THIS
+\usepackage{times}  % DO NOT CHANGE THIS
+\usepackage{helvet} % DO NOT CHANGE THIS
+\usepackage{courier}  % DO NOT CHANGE THIS
+\usepackage[hyphens]{url}  % DO NOT CHANGE THIS
+\usepackage{graphicx} % DO NOT CHANGE THIS
+\urlstyle{rm} % DO NOT CHANGE THIS
+\def\UrlFont{\rm}  % DO NOT CHANGE THIS
+\usepackage{graphicx}  % DO NOT CHANGE THIS
+\frenchspacing  % DO NOT CHANGE THIS
+\setlength{\pdfpagewidth}{8.5in}  % DO NOT CHANGE THIS
+\setlength{\pdfpageheight}{11in}  % DO NOT CHANGE THIS
+ 
+\newtheorem{definition}{Definition}
+
+\usepackage{listings}
+
+\usepackage{multirow}
+\usepackage{array}
+\newcolumntype{L}{>{\centering\arraybackslash}m{7cm}}
+\newcolumntype{Q}{>{\centering\arraybackslash}m{5
+cm}}
+\lstset
+{ %Formatting for code in appendix
+    language=Java,
+    frame=single,
+    morekeywords={?},
+    basicstyle=\footnotesize,
+    numbers=left,
+    stepnumber=1,
+    showstringspaces=false,
+    tabsize=1,
+    breaklines=true,
+    breakatwhitespace=false,
+    moredelim=**[is][\color{red}]{@}{@},
+    moredelim=**[is][\color{blue}]{^}{^},
+}
+
+\usepackage{xcolor}
+
+
+
+ \pdfinfo{
+/Title (InvocMap: Mapping Method Names to Method Invocations via Machine Learning)
+/Author (Anonymous Author)
+} 
+
+\setcounter{secnumdepth}{0} %May be changed to 1 or 2 if section numbers are desired.
+
+\setlength\titlebox{2.5in} % If your paper contains an overfull \vbox too high warning at the beginning of the document, use this
+\title{InvocMap: Mapping Method Names to Method Invocations via Machine Learning}
+\author{Anonymous Author(s)}
+ \begin{document}
+
+\maketitle
+
+\input{Abstract}
+\input{Introduction}
+\input{Method}
+\input{Experiments}
+\input{RelatedWorks}
+\clearpage
+\bibliography{refs} 
+
+\bibliographystyle{aaai}
+
+\end{document}
