@@ -1,0 +1,91 @@
+  \begin{table*}[t]
+  \tiny
+  \centering
+  \caption{Intrinsic Evaluation Result on Github projects}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
+\hline
+          &  \multicolumn{9}{c|}{\textbf{Intrinsic Evaluation with Configuration 1}}           \\
+\hline
+\textbf{Library}   & \textbf{Correct} & \textbf{Incorrect} & \textbf{OOSource} & \textbf{OOTarget} & \textbf{OOVoc}  & \textbf{Total}   & \textbf{Precision} & \textbf{Recall}  & \textbf{F1-Score} \\ \hline
+GWT       & 39635   & 22318     & 3082     & 28440    & 31522  & 93475   & 63.98\%   & 55.70\% & 59.55\%  \\ \hline
+Joda-Time & 27364   & 10608     & 51       & 1692     & 1743   & 39715   & 72.06\%   & 94.01\% & 81.59\%  \\ \hline
+JDK       & 1053330 & 540997    & 3691     & 390626   & 394317 & 1988644 & 66.07\%   & 72.76\% & 69.25\%  \\ \hline
+Android   & 471347  & 91753     & 5654     & 48662    & 54316  & 617416  & 83.71\%   & 89.67\% & 86.58\%  \\ \hline
+Hibernate & 53319   & 25305     & 4787     & 34090    & 38877  & 117501  & 67.82\%   & 57.83\% & 62.43\%  \\ \hline
+Xstream   & 4671    & 1692      & 70       & 2949     & 3019   & 9382    & 73.41\%   & 60.74\% & 66.48\%  \\ \hline
+Total     & 1649666 & 692673    & 17335    & 506459   & 523794 & 2866133 & 70.43\%   & 75.90\% & 73.06\%  \\ \hline
+          & \multicolumn{9}{c|}{\textbf{Intrinsic Evaluation with Configuration 2}} \\
+\hline
+\textbf{Library}   & \textbf{Correct} & \textbf{Incorrect} & \textbf{OOSource} & \textbf{OOTarget} & \textbf{OOVoc}  & \textbf{Total}   & \textbf{Precision} & \textbf{Recall}  & \textbf{F1-Score} \\ \hline
+GWT       & 53042                                     & 8911      & 3082     & 28440    & 31522  & 93475   & 85.62\%   & 62.72\% & 72.40\%  \\ \hline
+Joda-Time & 29028                                     & 8944      & 51       & 1692     & 1743   & 39715   & 76.45\%   & 94.34\% & 84.45\%  \\
+\hline
+JDK       & 1347221                                   & 247064    & 3691     & 390668   & 394359 & 1988644 & 84.50\%   & 77.36\% & 80.77\%  \\
+\hline
+Android   & 470725                                    & 92370     & 5654     & 48667    & 54321  & 617416  & 83.60\%   & 89.65\% & 86.52\%  \\
+\hline
+Hibernate & 63275                                     & 15345     & 4787     & 34094    & 38881  & 117501  & 80.48\%   & 61.94\% & 70.00\%  \\
+\hline
+Xstream   & 5145                                      & 1218      & 70       & 2949     & 3019   & 9382    & 80.86\%   & 63.02\% & 70.83\%  \\
+\hline
+Total     & 1968436                                   & 373852    & 17335    & 506510   & 523845 & 2866133 & 84.04\%   & 78.98\% & 81.43\%  \\
+\hline
+          & \multicolumn{9}{c|}{\textbf{Intrinsic Evaluation with Configuration 3}}        \\
+\hline
+\textbf{Library}   & \textbf{Correct} & \textbf{Incorrect} & \textbf{OOSource} & \textbf{OOTarget} & \textbf{OOVoc}  & \textbf{Total}   & \textbf{Precision} & \textbf{Recall}  & \textbf{F1-Score} \\ \hline
+GWT       & 55510                                     & 6443      & 3082     & 28440    & 31522  & 93475   & 89.60\%   & 63.78\% & 74.52\%  \\
+\hline
+Joda-Time & 31394                                     & 6578      & 51       & 1692     & 1743   & 39715   & 82.68\%   & 94.74\% & 88.30\%  \\
+\hline
+JDK       & 1435424                                   & 158861    & 3691     & 390668   & 394359 & 1988644 & 90.04\%   & 78.45\% & 83.84\%  \\
+\hline
+Android   & 498708                                    & 64387     & 5654     & 48667    & 54321  & 617416  & 88.57\%   & 90.18\% & 89.36\%  \\
+\hline
+Hibernate & 65860                                     & 12760     & 4787     & 34094    & 38881  & 117501  & 83.77\%   & 62.88\% & 71.84\%  \\
+\hline
+Xstream   & 5516                                      & 847       & 70       & 2949     & 3019   & 9382    & 86.69\%   & 64.63\% & 74.05\%  \\
+\hline
+Total     & 2092412                                   & 249876    & 17335    & 506510   & 523845 & 2866133 & 89.33\%   & 79.98\% & 84.40\%  \\
+\hline
+\end{tabular}
+
+\label{tbl:Intrinsic}
+\end{table*}
+
+\begin{table*}[t]
+\tiny
+\centering
+\caption{Extrinsic Evaluation Result on Online Forum Code Snippets}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
+\hline
+          & \multicolumn{9}{c|}{\textbf{Extrinsic Evaluation with Configuration 1}}                             \\ \hline
+\textbf{Library}   & \textbf{Correct} & \textbf{Incorrect} & \textbf{OOSource} & \textbf{OOTarget} & \textbf{OOVoc}  & \textbf{Total}   & \textbf{Precision} & \textbf{Recall}  & \textbf{F1-Score} \\ \hline
+GWT       & 58      & 35        & 0        & 9        & 9     & 102   & 62.37\%   & 86.57\% & 72.50\%  \\ \hline
+Joda-Time & 36      & 22        & 2        & 15       & 17    & 75    & 62.07\%   & 67.92\% & 64.86\%  \\ \hline
+JDK       & 115     & 91        & 0        & 44       & 44    & 250   & 55.83\%   & 72.33\% & 63.01\%  \\ \hline
+Android   & 51      & 42        & 0        & 13       & 13    & 106   & 54.84\%   & 79.69\% & 64.97\%  \\ \hline
+Hibernate & 125     & 61        & 1        & 39       & 40    & 226   & 67.20\%   & 75.76\% & 71.23\%  \\ \hline
+Xstream   & 44      & 6         & 0        & 14       & 14    & 64    & 88.00\%   & 75.86\% & 81.48\%  \\ \hline
+Total     & 429     & 257       & 3        & 134      & 137   & 823   & 62.54\%   & 75.80\% & 68.53\%  \\ \hline
+          & \multicolumn{9}{c|}{\textbf{Extrinsic Evaluation with Configuration 2}}                             \\ \hline
+\textbf{Library}   & \textbf{Correct} & \textbf{Incorrect} & \textbf{OOSource} & \textbf{OOTarget} & \textbf{OOVoc}  & \textbf{Total}   & \textbf{Precision} & \textbf{Recall}  & \textbf{F1-Score} \\ \hline
+GWT       & 88      & 5         & 0        & 9        & 9     & 102   & 94.62\%   & 90.72\% & 92.63\%  \\ \hline
+Joda-Time & 53      & 5         & 2        & 15       & 17    & 75    & 91.38\%   & 75.71\% & 82.81\%  \\ \hline
+JDK       & 177     & 29        & 0        & 44       & 44    & 250   & 85.92\%   & 80.09\% & 82.90\%  \\ \hline
+Android   & 85      & 8         & 0        & 13       & 13    & 106   & 91.40\%   & 86.73\% & 89.01\%  \\ \hline
+Hibernate & 138     & 48        & 1        & 39       & 40    & 226   & 74.19\%   & 77.53\% & 75.82\%  \\ \hline
+Xstream   & 49      & 1         & 0        & 14       & 14    & 64    & 98.00\%   & 77.78\% & 86.73\%  \\ \hline
+Total     & 590     & 96        & 3        & 134      & 137   & 823   & 86.01\%   & 81.16\% & 83.51\%  \\ \hline
+          & \multicolumn{9}{c|}{\textbf{Extrinsic Evaluation with Configuration 3}}                             \\ \hline
+\textbf{Library}   & \textbf{Correct} & \textbf{Incorrect} & \textbf{OOSource} & \textbf{OOTarget} & \textbf{OOVoc}  & \textbf{Total}   & \textbf{Precision} & \textbf{Recall}  & \textbf{F1-Score} \\ \hline
+GWT       & 89      & 4         & 0        & 9        & 9     & 102   & 95.70\%   & 90.82\% & 93.19\%  \\ \hline
+Joda-Time & 55      & 3         & 2        & 15       & 17    & 75    & 94.83\%   & 76.39\% & 84.62\%  \\ \hline
+JDK       & 174     & 32        & 0        & 44       & 44    & 250   & 84.47\%   & 79.82\% & 82.08\%  \\ \hline
+Android   & 82      & 11        & 0        & 13       & 13    & 106   & 88.17\%   & 86.32\% & 87.23\%  \\ \hline
+Hibernate & 146     & 40        & 1        & 39       & 40    & 226   & 78.49\%   & 78.49\% & 78.49\%  \\ \hline
+Xstream   & 50      & 0         & 0        & 14       & 14    & 64    & 100.00\%  & 78.13\% & 87.72\%  \\ \hline
+Total     & 596     & 90        & 3        & 134      & 137   & 823   & 86.88\%   & 81.31\% & 84.00\%  \\ \hline
+\end{tabular}
+
+\label{tbl:Extrinsic}
+\end{table*}

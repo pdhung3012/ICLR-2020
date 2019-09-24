@@ -45,7 +45,7 @@ According to definition in \cite{8453132}, an example is the API \texttt{java.io
 We extract information about other AST Nodes to provide useful context for MIs prediction. In the source language, we extract all tokens of level 1 of abstraction for each AST Node, and extract all tokens in level 2 of that AST Node to put into target language. The implementation of the extraction is the Context Extractor module, which is called inside Train AST Visitor and Test AST Visitor. The rules for handling each type of AST are shown in Table \ref{tbl:StatType_rules}. In this Table, the \texttt{PQN()} and \texttt{FQN()} ran when the AST Visitor visit elements that have type. The function for extracting tokens \texttt{S()} and \texttt{D()} can be recursive to sub elements of a given AST Node.
 
 \begin{table}[]
-\small
+\tiny
 \caption{Rules for extract source and target side for AST Nodes }
 \centering
 \begin{tabular}{|l|Q|}
@@ -75,7 +75,7 @@ We extract information about other AST Nodes to provide useful context for MIs p
 We get information about level 3 of abstraction in MI by proposing an algorithm in Listing \ref{lt:AlgorithmMethodAbstractor}. The \texttt{abstractMethodInvocation()} function is invoked when the Train AST Visitor or Test AST Visitor visit a MI and return the abstraction in level 3 by an instance of AST\_Level3 class. This function will use the child class of ASTVisitor called MICVisitor defined in Listing \ref{lt:AlgorithmMethodAbstractor} (Line \#45). This visitor will visit each element inside the MI, check and abstract if the element is a local entity. This visitor also stores other information about the code of AST, the list of required types for each local entities and the set of imported APIs. The handling strategy for each types of AST Node inside the MI is implemented in the \texttt{visitStructure()} function at Line \#61. After visiting and abstracting of MI to an \texttt{AST\_Level3}, this object is checked by the first four fields defined in line \#32 to line \#38 to see if its exist in the dictionary or not. If yes, it will have the id of the existing object in the dictionary. Otherwise, it will generate a new unique id and will be added to the dictionary. The dictionary stores information about abstraction at layer 3 of MIs in the training step. An example of  \texttt{AST\_Level3} object is shown in Figure \ref{fig:mapping_expression}.
 
 \begin{figure}[]
-        \center{\includegraphics[width=0.8\linewidth]
+        \center{\includegraphics[width=0.4\linewidth]
         {images/example_source_target.png}}
         \caption{\label{fig:mapping_expression} Example of AST\_Level3 instance}
       \end{figure}
@@ -83,7 +83,7 @@ We get information about level 3 of abstraction in MI by proposing an algorithm 
 
 
 \begin{figure}[]
-        \center{\includegraphics[width=\linewidth]
+        \center{\includegraphics[width=0.4\linewidth]
         {images/methodDescription_example.png}}
         \caption{\label{fig:method_desc_example} Example of tokens for source and target in Method Invocation}
       \end{figure}

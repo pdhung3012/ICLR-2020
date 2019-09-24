@@ -2,7 +2,7 @@
 \subsection{Data Preparation and Metrics}
 To do the evaluation, we select corpus on six well-known libraries. They are Java Development Kit (JDK), Android, GWT, Joda-Time, Hibernate, and XStream. These libraries were selected to generate the corpus for other research works (\cite{8453132,Subramanian:2014:LAD:2568225.2568313}). To generate corpus, we select 1000 highest stars Java projects from Github (\cite{id:Github}), which have most files used API from libraries in Table \ref{tbl:DataPreparation}. For each Java project, InvocMap parses each Java source files by an the Train ASTVisitor module on Figure \ref{fig:ApproachOverview}. We apply our solution using Phrasal \cite{Green2014}.The number of methods we collect is shown in Table \ref{tbl:DataPreparation}. 
 \begin{table}[]
-\small
+\tiny
 \centering
 \caption{Statistics on Corpus}
 \begin{tabular}{|l|l|}
@@ -25,7 +25,7 @@ Xstream   & 159170         \\ \hline
 We evaluate the ability of translation from a sequence of method names to ASTs in level 3 of abstraction. We simulate 3 configurations sequences of method names regarding to its local context defined in Table \ref{tbl:Config2}. 
 
 \begin{table}[]
-\small
+\tiny
 \centering
 \caption{3 Testing Configurations for Developers}
 \begin{tabular}{|l|Q|}
@@ -54,64 +54,63 @@ We evaluate the correct inference of method names. Information about tokens of m
  
 \subsection{Research Question (RQ) 1: How InvocMap can perform to predict the implementation with Intrinsic Data?}
 
-  \begin{table*}[t]
-  \small
+  \begin{table}[t]
+  \tiny
   \centering
-  \caption{Intrinsic Evaluation Result on Github projects}
-\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
+  \caption{Intrinsic Evaluation Result on Github projects and Extrinsic Evaluation Result on Online Forum Code}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|}
 \hline
-          &  \multicolumn{9}{c|}{\textbf{Intrinsic Evaluation with Configuration 1}}           \\
+          &  \multicolumn{6}{c|}{\textbf{Intrinsic Evaluation with Configuration 1}} &  \multicolumn{6}{c|}{\textbf{Extrinsic Evaluation with Configuration 1}}           \\
 \hline
-\textbf{Library}   & \textbf{Correct} & \textbf{Incorrect} & \textbf{OOSource} & \textbf{OOTarget} & \textbf{OOVoc}  & \textbf{Total}   & \textbf{Precision} & \textbf{Recall}  & \textbf{F1-Score} \\ \hline
-GWT       & 39635   & 22318     & 3082     & 28440    & 31522  & 93475   & 63.98\%   & 55.70\% & 59.55\%  \\ \hline
-Joda-Time & 27364   & 10608     & 51       & 1692     & 1743   & 39715   & 72.06\%   & 94.01\% & 81.59\%  \\ \hline
-JDK       & 1053330 & 540997    & 3691     & 390626   & 394317 & 1988644 & 66.07\%   & 72.76\% & 69.25\%  \\ \hline
-Android   & 471347  & 91753     & 5654     & 48662    & 54316  & 617416  & 83.71\%   & 89.67\% & 86.58\%  \\ \hline
-Hibernate & 53319   & 25305     & 4787     & 34090    & 38877  & 117501  & 67.82\%   & 57.83\% & 62.43\%  \\ \hline
-Xstream   & 4671    & 1692      & 70       & 2949     & 3019   & 9382    & 73.41\%   & 60.74\% & 66.48\%  \\ \hline
-Total     & 1649666 & 692673    & 17335    & 506459   & 523794 & 2866133 & 70.43\%   & 75.90\% & 73.06\%  \\ \hline
-          & \multicolumn{9}{c|}{\textbf{Intrinsic Evaluation with Configuration 2}} \\
+\textbf{Library}   & \textbf{Correct} & \textbf{OOVoc}  & \textbf{Total}   & \textbf{Pre} & \textbf{Rec}  & \textbf{F1} & \textbf{Cor} & \textbf{OOV}  & \textbf{Total}   & \textbf{Pre} & \textbf{Rec}  & \textbf{F1} \\ \hline
+GWT       & 39635    & 31522  & 93475   & 63.98\%   & 55.70\% & 59.55\%   & 58              & 9     & 102   & 62.37\%   & 86.57\% & 72.50\%  \\ \hline
+Joda-Time & 27364      & 1743   & 39715   & 72.06\%   & 94.01\% & 81.59\%  & 36             & 17    & 75    & 62.07\%   & 67.92\% & 64.86\%  \\ \hline
+JDK       & 1053330   & 394317 & 1988644 & 66.07\%   & 72.76\% & 69.25\% & 115            & 44    & 250   & 55.83\%   & 72.33\% & 63.01\%  \\ \hline
+Android   & 471347     & 54316  & 617416  & 83.71\%   & 89.67\% & 86.58\% & 51             & 13    & 106   & 54.84\%   & 79.69\% & 64.97\%  \\ \hline
+Hibernate & 53319      & 38877  & 117501  & 67.82\%   & 57.83\% & 62.43\% & 125            & 40    & 226   & 67.20\%   & 75.76\% & 71.23\%  \\ \hline
+Xstream   & 4671      & 3019   & 9382    & 73.41\%   & 60.74\% & 66.48\%  & 44             & 14    & 64    & 88.00\%   & 75.86\% & 81.48\%  \\ \hline
+Total     & 1649666   & 523794 & 2866133 & 70.43\%   & 75.90\% & 73.06\%   & 429           & 137   & 823   & 62.54\%   & 75.80\% & 68.53\%  \\ \hline
+          & \multicolumn{6}{c|}{\textbf{Intrinsic Evaluation with Configuration 2}}  & \multicolumn{6}{c|}{\textbf{Extrinsic Evaluation with Configuration 2}}   \\
 \hline
-\textbf{Library}   & \textbf{Correct} & \textbf{Incorrect} & \textbf{OOSource} & \textbf{OOTarget} & \textbf{OOVoc}  & \textbf{Total}   & \textbf{Precision} & \textbf{Recall}  & \textbf{F1-Score} \\ \hline
-GWT       & 53042                                     & 8911      & 3082     & 28440    & 31522  & 93475   & 85.62\%   & 62.72\% & 72.40\%  \\ \hline
-Joda-Time & 29028                                     & 8944      & 51       & 1692     & 1743   & 39715   & 76.45\%   & 94.34\% & 84.45\%  \\
+GWT       & 53042                                     & 31522  & 93475   & 85.62\%   & 62.72\% & 72.40\%    & 88              & 9     & 102   & 94.62\%   & 90.72\% & 92.63\%  \\ \hline
+Joda-Time & 29028                                     & 1743   & 39715   & 76.45\%   & 94.34\% & 84.45\%  & 53             & 17    & 75    & 91.38\%   & 75.71\% & 82.81\% \\
 \hline
-JDK       & 1347221                                   & 247064    & 3691     & 390668   & 394359 & 1988644 & 84.50\%   & 77.36\% & 80.77\%  \\
+JDK       & 1347221                                    & 394359 & 1988644 & 84.50\%   & 77.36\% & 80.77\%  & 177            & 44    & 250   & 85.92\%   & 80.09\% & 82.90\%  \\
 \hline
-Android   & 470725                                    & 92370     & 5654     & 48667    & 54321  & 617416  & 83.60\%   & 89.65\% & 86.52\%  \\
+Android   & 470725                                    & 54321  & 617416  & 83.60\%   & 89.65\% & 86.52\% & 85             & 13    & 106   & 91.40\%   & 86.73\% & 89.01\%  \\
 \hline
-Hibernate & 63275                                     & 15345     & 4787     & 34094    & 38881  & 117501  & 80.48\%   & 61.94\% & 70.00\%  \\
+Hibernate & 63275                                     & 38881  & 117501  & 80.48\%   & 61.94\% & 70.00\% & 138            & 40    & 226   & 74.19\%   & 77.53\% & 75.82\%  \\
 \hline
-Xstream   & 5145                                      & 1218      & 70       & 2949     & 3019   & 9382    & 80.86\%   & 63.02\% & 70.83\%  \\
+Xstream   & 5145                                      & 3019   & 9382    & 80.86\%   & 63.02\% & 70.83\% & 49             & 14    & 64    & 98.00\%   & 77.78\% & 86.73\%  \\
 \hline
-Total     & 1968436                                   & 373852    & 17335    & 506510   & 523845 & 2866133 & 84.04\%   & 78.98\% & 81.43\%  \\
+Total     & 1968436                                   & 523845 & 2866133 & 84.04\%   & 78.98\% & 81.43\%   & 590           & 137   & 823   & 86.01\%   & 81.16\% & 83.51\%     \\
 \hline
-          & \multicolumn{9}{c|}{\textbf{Intrinsic Evaluation with Configuration 3}}        \\
+          & \multicolumn{6}{c|}{\textbf{Intrinsic Evaluation with Configuration 3}}      & \multicolumn{6}{c|}{\textbf{Extrinsic Evaluation with Configuration 3}}            \\
 \hline
-\textbf{Library}   & \textbf{Correct} & \textbf{Incorrect} & \textbf{OOSource} & \textbf{OOTarget} & \textbf{OOVoc}  & \textbf{Total}   & \textbf{Precision} & \textbf{Recall}  & \textbf{F1-Score} \\ \hline
-GWT       & 55510                                     & 6443      & 3082     & 28440    & 31522  & 93475   & 89.60\%   & 63.78\% & 74.52\%  \\
+GWT       & 55510                                     & 31522  & 93475   & 89.60\%   & 63.78\% & 74.52\%    & 89              & 9     & 102   & 95.70\%   & 90.82\% & 93.19\%  \\
 \hline
-Joda-Time & 31394                                     & 6578      & 51       & 1692     & 1743   & 39715   & 82.68\%   & 94.74\% & 88.30\%  \\
+Joda-Time & 31394                                     & 1743   & 39715   & 82.68\%   & 94.74\% & 88.30\%  & 55             & 17    & 75    & 94.83\%   & 76.39\% & 84.62\%  \\
 \hline
-JDK       & 1435424                                   & 158861    & 3691     & 390668   & 394359 & 1988644 & 90.04\%   & 78.45\% & 83.84\%  \\
+JDK       & 1435424                                    & 394359 & 1988644 & 90.04\%   & 78.45\% & 83.84\%  & 174            & 44    & 250   & 84.47\%   & 79.82\% & 82.08\%  \\
 \hline
-Android   & 498708                                    & 64387     & 5654     & 48667    & 54321  & 617416  & 88.57\%   & 90.18\% & 89.36\%  \\
+Android   & 498708                                    & 54321  & 617416  & 88.57\%   & 90.18\% & 89.36\% & 82             & 13    & 106   & 88.17\%   & 86.32\% & 87.23\%  \\
 \hline
-Hibernate & 65860                                     & 12760     & 4787     & 34094    & 38881  & 117501  & 83.77\%   & 62.88\% & 71.84\%  \\
+Hibernate & 65860                                     & 38881  & 117501  & 83.77\%   & 62.88\% & 71.84\% & 146            & 40    & 226   & 78.49\%   & 78.49\% & 78.49\%  \\
 \hline
-Xstream   & 5516                                      & 847       & 70       & 2949     & 3019   & 9382    & 86.69\%   & 64.63\% & 74.05\%  \\
+Xstream   & 5516                                      & 3019   & 9382    & 86.69\%   & 64.63\% & 74.05\% & 50             & 14    & 64    & 100.00\%  & 78.13\% & 87.72\%  \\
 \hline
-Total     & 2092412                                   & 249876    & 17335    & 506510   & 523845 & 2866133 & 89.33\%   & 79.98\% & 84.40\%  \\
+Total     & 2092412                                   & 523845 & 2866133 & 89.33\%   & 79.98\% & 84.40\%   & 596           & 137   & 823   & 86.88\%   & 81.31\% & 84.00\%   \\
 \hline
 \end{tabular}
 
-\label{tbl:Intrinsic}
-\end{table*}
+\label{tbl:IntrinsicAndExtrinsic}
+\end{table}
+
 
 We split the pairs of our parallel corpus for training and testing. We get 10\% of the data for testing and the other with training and do ten-fold cross-validation to test the ability of prediction on our full data set. In total, there are 2.86 Million of MIs collected from 1000 projects from Github \cite{id:Github}.
-The evaluation result for intrinsic data is shown in Table \ref{tbl:Intrinsic}. We show that from configuration 1 to configuration 3, the F1 score increases from 73.06\% to 84.4\%. This seems to be feasible, since the fact that if we provide more local context information along with method names, the ability to predict correctly AST in level 3 for the translation model is better. We see one observation is that the number of Out of Vocabulary expressions are higher in percentage, cause decreasing in recall compare to the research work that applied Machine Translation for inferring Fully Qualified Name from incomplete code (\cite{8453132}). This is reasonable, since our work requires to infer the MI in level 3 of abstraction, which contains detail structure compared to output of \cite{8453132} as type information of MIs. 
+The evaluation result for intrinsic data is shown in Table \ref{tbl:IntrinsicAndExtrinsic}. We show that from configuration 1 to configuration 3, the F1 score increases from 73.06\% to 84.4\%. This seems to be feasible, since the fact that if we provide more local context information along with method names, the ability to predict correctly AST in level 3 for the translation model is better. We see one observation is that the number of Out of Vocabulary expressions are higher in percentage, cause decreasing in recall compare to the research work that applied Machine Translation for inferring Fully Qualified Name from incomplete code (\cite{8453132}). This is reasonable, since our work requires to infer the MI in level 3 of abstraction, which contains detail structure compared to output of \cite{8453132} as type information of MIs. 
 \begin{figure}[]
-        \center{\includegraphics[width=\linewidth]
+        \center{\includegraphics[width=0.4\linewidth]
         {images/example_in.png}}
         \caption{\label{fig:example_in} Example of query in configuration 1 for code snippet in \cite{id:IntrinsicAndroidExample}}
       \end{figure}
@@ -121,45 +120,7 @@ We study an example in the Intrinsic Evaluation in Figure \ref{fig:example_in}. 
 
 To do this experiment, we collect the data as code snippets from Online Forums (\cite{id:StackOverflow,id:ProgramCreek,id:GeeksForGeeks}). To do this, a Software Engineer who has 5 years of experience in Java programming was hired to collect code snippets from 120 posts in Online Forums, with 20 posts for each library in Table \ref{tbl:DataPreparation}. Each code snippets are required to have the MIs of 6 libraries: JDK, Android, GWT, Joda-Time, Hibernate, and XStream. We run our Test ASTVisitor module to extract the source tokens with embedding MIs at 3 levels and use the SMT model learned from our parallel corpus for the prediction.
 
-\begin{table*}[t]
-\small
-\centering
-\caption{Extrinsic Evaluation Result on Online Forum Code Snippets}
-\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
-\hline
-          & \multicolumn{9}{c|}{\textbf{Extrinsic Evaluation with Configuration 1}}                             \\ \hline
-\textbf{Library}   & \textbf{Correct} & \textbf{Incorrect} & \textbf{OOSource} & \textbf{OOTarget} & \textbf{OOVoc}  & \textbf{Total}   & \textbf{Precision} & \textbf{Recall}  & \textbf{F1-Score} \\ \hline
-GWT       & 58      & 35        & 0        & 9        & 9     & 102   & 62.37\%   & 86.57\% & 72.50\%  \\ \hline
-Joda-Time & 36      & 22        & 2        & 15       & 17    & 75    & 62.07\%   & 67.92\% & 64.86\%  \\ \hline
-JDK       & 115     & 91        & 0        & 44       & 44    & 250   & 55.83\%   & 72.33\% & 63.01\%  \\ \hline
-Android   & 51      & 42        & 0        & 13       & 13    & 106   & 54.84\%   & 79.69\% & 64.97\%  \\ \hline
-Hibernate & 125     & 61        & 1        & 39       & 40    & 226   & 67.20\%   & 75.76\% & 71.23\%  \\ \hline
-Xstream   & 44      & 6         & 0        & 14       & 14    & 64    & 88.00\%   & 75.86\% & 81.48\%  \\ \hline
-Total     & 429     & 257       & 3        & 134      & 137   & 823   & 62.54\%   & 75.80\% & 68.53\%  \\ \hline
-          & \multicolumn{9}{c|}{\textbf{Extrinsic Evaluation with Configuration 2}}                             \\ \hline
-\textbf{Library}   & \textbf{Correct} & \textbf{Incorrect} & \textbf{OOSource} & \textbf{OOTarget} & \textbf{OOVoc}  & \textbf{Total}   & \textbf{Precision} & \textbf{Recall}  & \textbf{F1-Score} \\ \hline
-GWT       & 88      & 5         & 0        & 9        & 9     & 102   & 94.62\%   & 90.72\% & 92.63\%  \\ \hline
-Joda-Time & 53      & 5         & 2        & 15       & 17    & 75    & 91.38\%   & 75.71\% & 82.81\%  \\ \hline
-JDK       & 177     & 29        & 0        & 44       & 44    & 250   & 85.92\%   & 80.09\% & 82.90\%  \\ \hline
-Android   & 85      & 8         & 0        & 13       & 13    & 106   & 91.40\%   & 86.73\% & 89.01\%  \\ \hline
-Hibernate & 138     & 48        & 1        & 39       & 40    & 226   & 74.19\%   & 77.53\% & 75.82\%  \\ \hline
-Xstream   & 49      & 1         & 0        & 14       & 14    & 64    & 98.00\%   & 77.78\% & 86.73\%  \\ \hline
-Total     & 590     & 96        & 3        & 134      & 137   & 823   & 86.01\%   & 81.16\% & 83.51\%  \\ \hline
-          & \multicolumn{9}{c|}{\textbf{Extrinsic Evaluation with Configuration 3}}                             \\ \hline
-\textbf{Library}   & \textbf{Correct} & \textbf{Incorrect} & \textbf{OOSource} & \textbf{OOTarget} & \textbf{OOVoc}  & \textbf{Total}   & \textbf{Precision} & \textbf{Recall}  & \textbf{F1-Score} \\ \hline
-GWT       & 89      & 4         & 0        & 9        & 9     & 102   & 95.70\%   & 90.82\% & 93.19\%  \\ \hline
-Joda-Time & 55      & 3         & 2        & 15       & 17    & 75    & 94.83\%   & 76.39\% & 84.62\%  \\ \hline
-JDK       & 174     & 32        & 0        & 44       & 44    & 250   & 84.47\%   & 79.82\% & 82.08\%  \\ \hline
-Android   & 82      & 11        & 0        & 13       & 13    & 106   & 88.17\%   & 86.32\% & 87.23\%  \\ \hline
-Hibernate & 146     & 40        & 1        & 39       & 40    & 226   & 78.49\%   & 78.49\% & 78.49\%  \\ \hline
-Xstream   & 50      & 0         & 0        & 14       & 14    & 64    & 100.00\%  & 78.13\% & 87.72\%  \\ \hline
-Total     & 596     & 90        & 3        & 134      & 137   & 823   & 86.88\%   & 81.31\% & 84.00\%  \\ \hline
-\end{tabular}
-
-\label{tbl:Extrinsic}
-\end{table*}
-
-The result for extrinsic evaluation is shown in Table \ref{tbl:Extrinsic}. We see that with level 1, since the case that only method names are provided in the source language, our approach stills predict correctly 62.54\% in precision. With the configuration levels that developers add more information, the precision increases to 86.88\%. For each library, we achieved the highest accuracy on GWT and lowest on Hibernate with input as detail information like configuration 3. This result seems reasonable, since Hibernate is a bigger library compared to GWT but it is not as popular as JDK, causes the variety of ASTs for APIs in this library.
+The result for extrinsic evaluation is shown in Table \ref{tbl:IntrinsicAndExtrinsic}. We see that with level 1, since the case that only method names are provided in the source language, our approach stills predict correctly 62.54\% in precision. With the configuration levels that developers add more information, the precision increases to 86.88\%. For each library, we achieved the highest accuracy on GWT and lowest on Hibernate with input as detail information like configuration 3. This result seems reasonable, since Hibernate is a bigger library compared to GWT but it is not as popular as JDK, causes the variety of ASTs for APIs in this library.
 
 
 
@@ -169,7 +130,7 @@ The result for extrinsic evaluation is shown in Table \ref{tbl:Extrinsic}. We se
 In this evaluation, we analyze the relation of the expression prediction result relates to the number of mapping of each method name from the parallel corpus. We use data collected for the Intrinsic Evaluation with configuration 3, means each method names are embedded with local entities and local terms in the source language. The result is shown in Table \ref{tbl:Analyze1}.
 
 \begin{table}[]
-\small
+\tiny
 \centering
 \caption{Analyze Relation between Accuracy and Num of distinct mapping of Config 3}
 \begin{tabular}{|l|l|l|l|l|l|}
