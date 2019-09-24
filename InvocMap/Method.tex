@@ -1,12 +1,12 @@
 \section{Approach}
 \subsection{Overview}
-\begin{figure*}[t]
+\begin{figure*}[]
  \centering
   \includegraphics[width=\linewidth]{ApproachOverview.png}
-  \caption{Overview of InvocMap Approach}
+  \caption{Overview Approach of InvocMap }
   \label{fig:ApproachOverview}
 \end{figure*}
-We summarize the engines inside InvocMap on Figure \ref{fig:ApproachOverview}. From developer view, InvocMap provides a plugin inside with Java code editor to allow (s)he to write a singleor multiple method namess inside the code environment. From this input, InvocMap translates each method names to respective ASTs. These ASTs reflect the complex structure of method invocations which might be inconvenient for developers to remember. They were abstracted at level 3 in our definition, means they only require developers to add local variables, local methods or literals to get the final code. We will discuss about MI at level 3 of abstraction in the next section. The ability of inferring ASTs for code completion relies on the Statistical Translation module. The training process is done by the Statistical Learning module. This module learns information from the data extracted from large scale Github code corpus  \cite{id:Github}. In general, our statistical approach takes advantages of the knowledge of implementing MIs of experience developers, representing it by a machine learning model to help non-experience developers in retrieving effective implementation of MIs. Both the source code at developers side and code corpus are analyzed to extract sequences of tokens by the Train AST Visitor and Test AST Visitor module we developed. Inside these visitors, we handle each AST Node types by function of modules Context Extractor and MI Abstractor, which we discuss in next sections.
+We summarize the engines inside InvocMap on Figure \ref{fig:ApproachOverview}. From developer view, InvocMap provides a plugin inside with Java code editor to allow (s)he to write a single or multiple method names inside the code environment. From this input, InvocMap translates each method names to respective ASTs. These ASTs reflect the complex structure of method invocations which might be inconvenient for developers to remember. They were abstracted at level 3 in our definition, means they only require developers to add local variables, local methods or literals to get the final code. We will discuss about MI at level 3 of abstraction in the next section. The ability of inferring ASTs for code completion relies on the Statistical Translation module. The training process is done by the Statistical Learning module. This module learns information from the data extracted from large scale Github code corpus  \cite{id:Github}. In general, our statistical approach takes advantages of the knowledge of implementing MIs of experience developers, representing it by a machine learning model to help non-experience developers in retrieving effective implementation of MIs. Both the source code at developers side and code corpus are analyzed to extract sequences of tokens by the Train AST Visitor and Test AST Visitor module we developed. Inside these visitors, we handle each AST Node types by function of modules Context Extractor and MI Abstractor, which we discuss in next sections.
 \subsection{Levels of MI Abstraction in InvocMap}
 In this section, we describe our theorems for method invocation abstraction.
 \begin{definition}
@@ -98,11 +98,10 @@ Language Model (LM) plays an important role in a PBMT system. LM is used to pred
 Here we use the n-gram language model, which proposed in \cite{Jurafsky:2009:SLP:1214993}. The n-gram LM is used to measure the probability of implementation of MI given a list of previous implementations. The n-gram LM overcome the cost of measuring history for each word by considering and approximate the history for the last n-words that appeared before the current word. Assume that we have m tokens in the target language \({AST_{1},...,AST_{m}}\), the probability provided by LM is:
 
 \begin{equation} 
-\small
+\tiny
 \label{eq:EQ_Probability}
  P[AST_{1}, ...,AST_{m}]=\prod_{i=1}^{m}P[AST_{i} | AST_{i-n},...,AST_{i-1}]
 \end{equation}
-\\
 
 In equation \ref{eq:EQ_Probability}, the probability for each element of the production on the right side is estimated by the co-occurrence of the current word given the list of the previous words in the target corpus (\cite{Jurafsky:2009:SLP:1214993}). In our model, we use 4-gram LM as the default configuration of LM in NLP.
 
@@ -110,13 +109,14 @@ In equation \ref{eq:EQ_Probability}, the probability for each element of the pro
 The translation model calculates the probability of a phrase from source language that can be translated to a phrase in a target language. In our problem, if we have a sentence   \({D}\) as the translated result of sentence \({S}\) as tokens in the source language, the selection of \({D}\) as the best candidate is calculated as follows:
 
 \begin{equation} 
-\small
+\tiny
 \label{eq:EQ_Argmax}
  D_{best}=argmax_{D}(p(S|D)*P_{LM}(D)))
 \end{equation}
 
 In equation \ref{eq:EQ_Argmax}, \({p(S|D)}\) is the probability of translation model to get the best accuracy calculated by the work of \ref{eq:EQ_ProbTransModel}. In this formula, \(I\) is the number of phrase appeared in sentence \({D}\), while \(\theta ({s_{i}}|{d_{i}})\) is the probability functions between phrase calculated by \cite{Green2014}. Compare to the original translation between natural languages, the translation model in NL has an another type of distribution called reordering distribution. Since our corpus has consistent length between source and target, we don't apply this distribution to equation \ref{eq:EQ_ProbTransModel}.
 \begin{equation} 
+\tiny
 \label{eq:EQ_ProbTransModel}
 {p(S|D)=\prod_{i=1}^{I} \theta ({s_{i}}|{d_{i}}) }
 \end{equation}
