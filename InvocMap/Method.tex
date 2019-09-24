@@ -74,20 +74,30 @@ We extract information about other AST Nodes to provide useful context for MIs p
 \subsubsection{Method Invocation Abstraction}
 We get information about level 3 of abstraction in MI by proposing an algorithm in Listing \ref{lt:AlgorithmMethodAbstractor}. The \texttt{abstractMethodInvocation()} function is invoked when the Train AST Visitor or Test AST Visitor visit a MI and return the abstraction in level 3 by an instance of AST\_Level3 class. This function will use the child class of ASTVisitor called MICVisitor defined in Listing \ref{lt:AlgorithmMethodAbstractor} (Line \#45). This visitor will visit each element inside the MI, check and abstract if the element is a local entity. This visitor also stores other information about the code of AST, the list of required types for each local entities and the set of imported APIs. The handling strategy for each types of AST Node inside the MI is implemented in the \texttt{visitStructure()} function at Line \#61. After visiting and abstracting of MI to an \texttt{AST\_Level3}, this object is checked by the first four fields defined in line \#32 to line \#38 to see if its exist in the dictionary or not. If yes, it will have the id of the existing object in the dictionary. Otherwise, it will generate a new unique id and will be added to the dictionary. The dictionary stores information about abstraction at layer 3 of MIs in the training step. An example of  \texttt{AST\_Level3} object is shown in Figure \ref{fig:mapping_expression}.
 
-\begin{figure}[]
-        \center{\includegraphics[width=0.4\linewidth]
+\begin{figure}[t]
+    \centering
+      \begin{subfigure}{0.33\textwidth}
+        \center{\includegraphics[width=\linewidth]
         {images/example_source_target.png}}
-        \caption{\label{fig:mapping_expression} Example of AST\_Level3 instance}
-      \end{figure}
-
-
-
-\begin{figure}[]
-        \center{\includegraphics[width=0.4\linewidth]
+        \caption{Example of AST\_Level3 instance}
+        \label{fig:mapping_expression} 
+      \end{subfigure}
+      \hfill
+      \begin{subfigure}[t]{0.3\textwidth}
+        \center{\includegraphics[width=\linewidth]
         {images/methodDescription_example.png}}
-        \caption{\label{fig:method_desc_example} Example of tokens for source and target in Method Invocation}
-      \end{figure}
-
+        \caption{Example of tokens for source and target in Method Invocation}
+        \label{fig:method_desc_example}
+      \end{subfigure}
+      \begin{subfigure}{0.35\textwidth}
+        \center{\includegraphics[width=\linewidth]
+        {images/example_in.png}}
+        \caption{\label{fig:example_in} Example of query in configuration 1 for code snippet in \cite{id:IntrinsicAndroidExample}}
+      \end{subfigure}
+\caption{
+\label{fig:CombineImageOfASTLevel3}%
+Representation of ASTLevel3}
+\end{figure}
 
 \input{algorithmForMethodAbstractor.tex}
 \subsection{SMT}

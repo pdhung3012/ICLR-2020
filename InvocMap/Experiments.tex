@@ -1,10 +1,15 @@
 \section{Evaluation}
 \subsection{Data Preparation and Metrics}
 To do the evaluation, we select corpus on six well-known libraries. They are Java Development Kit (JDK), Android, GWT, Joda-Time, Hibernate, and XStream. These libraries were selected to generate the corpus for other research works (\cite{8453132,Subramanian:2014:LAD:2568225.2568313}). To generate corpus, we select 1000 highest stars Java projects from Github (\cite{id:Github}), which have most files used API from libraries in Table \ref{tbl:DataPreparation}. For each Java project, InvocMap parses each Java source files by an the Train ASTVisitor module on Figure \ref{fig:ApproachOverview}. We apply our solution using Phrasal \cite{Green2014}.The number of methods we collect is shown in Table \ref{tbl:DataPreparation}. 
-\begin{table}[]
+
+\begin{table}[htbp]
 \tiny
+\caption{Data and configurations of evaluation}
+\label{tbl:CombineConfigTables}
+\begin{subtable}[t]{0.48\textwidth}
 \centering
-\caption{Statistics on Corpus}
+\caption{Corpus statistic}
+\label{tbl:DataPreparation}
 \begin{tabular}{|l|l|}
 \hline
 \textbf{Library }  & \textbf{Num of methods} \\ \hline
@@ -15,19 +20,12 @@ Android   & 312822         \\ \hline
 Hibernate & 149887         \\ \hline
 Xstream   & 159170         \\ \hline
 \end{tabular}
-
-\label{tbl:DataPreparation}
-\end{table}
-
-\subsubsection{Training Configuration} To train the SMT model, we use a high-end computer with core-i7 Intel processor and use 32 GB of memory. We allocate Phrasal with phrase length equals to 7. The total training time requires about 6 hours.
-
-\subsubsection{Test Configuration}
-We evaluate the ability of translation from a sequence of method names to ASTs in level 3 of abstraction. We simulate 3 configurations sequences of method names regarding to its local context defined in Table \ref{tbl:Config2}. 
-
-\begin{table}[]
+\end{subtable}
+\begin{subtable}[t]{0.48\textwidth}
 \tiny
-\centering
-\caption{3 Testing Configurations for Developers}
+\flushright
+\caption{Configuration Setting}
+\label{tbl:Config2}
 \begin{tabular}{|l|Q|}
 \hline
                      & \textbf{Meaning / Example    }                                                                                              \\ \hline
@@ -43,14 +41,23 @@ System.out.println(\#+\#)
 \\ & Params: int and int     
                      \\ \hline
 \end{tabular}
+\end{subtable}
 
-\label{tbl:Config2}
 \end{table}
+
+
+
+\subsubsection{Training Configuration} To train the SMT model, we use a high-end computer with core-i7 Intel processor and use 32 GB of memory. We allocate Phrasal with phrase length equals to 7. The total training time requires about 6 hours.
+
+\subsubsection{Test Configuration}
+We evaluate the ability of translation from a sequence of method names to ASTs in level 3 of abstraction. We simulate 3 configurations sequences of method names regarding to its local context defined in Table \ref{tbl:Config2}. 
+
+
 
 We can see the local context provided for method names is increasing from configurations at level 1 to level 3. At level 1, the input for translation contains only method names with the code context in the source language for translation. It simulates the case that developers write a list of method names inside the code environment. At level 2, information about partial class name of types of local entities is attached along with each method names. This case simulates the case developers remember and write method name and local variables (s)he needs to implement the MI but (s)he doesn't remember the structure of AST. At level 3, each method names in the source language will be attached the information about local entities and half of words appeared inside the MI. This case simulates the case that developers remember some words inside the MI along with local entities. In Table \ref{tbl:Config2}, at level 3 developer input \texttt{println} as method name, 2 integers as variables and an operator \texttt{+}. The input for predicting the MI is \texttt{int\#var int\#var println\#identifier +\#term}. And the translation engine needs to return as MI respected to \texttt{println\#identifier}.
 
 \subsubsection{Metrics}
-We evaluate the correct inference of method names. Information about tokens of method name can be recognized by the annotation \texttt{\#identifier} for the source, and the expected results can be recognized by prefix \texttt{"E-Total"} of tokens in the target. We use Precision and Recall as 2 metrics for the evaluation. We category cases of predicting tokens of method name: True Positive (TP)- means the prediction is correct; False Positive (FP) - means the expected expression is in the training corpus but the translated expression is different and False Negative (FN) - means the expected expression is out of vocabulary (OOV). Out of Vocabulary is the case that the method name token does not in the corpus (Out of Source - OOS) or the expected expression token does not appear in the target corpus (Out of Target - OOV). 
+We evaluate the correct inference of method names. Information about tokens of method name can be recognized by the annotation \texttt{\#identifier} for the source, and the expected results can be recognized by prefix \texttt{"E-Total"} of tokens in the target. We use Precision and Recall as 2 metrics for the evaluation. We category cases of predicting tokens of method name: True Positive (TP)- means the prediction is correct; False Positive (FP) - means the expected expression is in the training corpus but the translated expression is different and False Negative (FN) - means the expected expression is out of vocabulary (OOV). Out of Vocabulary is the case that the method name token does not in the corpus (Out of Source - OOS) or the expected expression token does not appear in the target corpus (Out of Target - OOT). 
  
 \subsection{Research Question (RQ) 1: How InvocMap can perform to predict the implementation with Intrinsic Data?}
 
@@ -109,11 +116,7 @@ Total     & 2092412                                   & 523845 & 2866133 & 89.33
 
 We split the pairs of our parallel corpus for training and testing. We get 10\% of the data for testing and the other with training and do ten-fold cross-validation to test the ability of prediction on our full data set. In total, there are 2.86 Million of MIs collected from 1000 projects from Github \cite{id:Github}.
 The evaluation result for intrinsic data is shown in Table \ref{tbl:IntrinsicAndExtrinsic}. We show that from configuration 1 to configuration 3, the F1 score increases from 73.06\% to 84.4\%. This seems to be feasible, since the fact that if we provide more local context information along with method names, the ability to predict correctly AST in level 3 for the translation model is better. We see one observation is that the number of Out of Vocabulary expressions are higher in percentage, cause decreasing in recall compare to the research work that applied Machine Translation for inferring Fully Qualified Name from incomplete code (\cite{8453132}). This is reasonable, since our work requires to infer the MI in level 3 of abstraction, which contains detail structure compared to output of \cite{8453132} as type information of MIs. 
-\begin{figure}[]
-        \center{\includegraphics[width=0.4\linewidth]
-        {images/example_in.png}}
-        \caption{\label{fig:example_in} Example of query in configuration 1 for code snippet in \cite{id:IntrinsicAndroidExample}}
-      \end{figure}
+
 We study an example in the Intrinsic Evaluation in Figure \ref{fig:example_in}. This example is a function collected from \cite{id:IntrinsicAndroidExample} from our corpus. The testing for intrinsic evaluation simulates the case developers input only \texttt{println} inside the code environment, the output of this case will be the implementation of \texttt{java.io.PrintWriter.println()} function. We can see that the surrounding code is useful to infer the correct expression. If we do not have the context information, which means developer input \texttt{println} in an empty method, the translated result will return the most popular MI, \texttt{System.out.println()}.
 
 \subsection{RQ2: How well InvocMap can perform to predict the implementation with Extrinsic Data?}
