@@ -1,5 +1,4 @@
 \section{Approach}
-\subsection{Overview}
 \begin{figure*}[]
  \centering
   \includegraphics[width=\linewidth]{ApproachOverview.png}
@@ -42,64 +41,42 @@ Level 2 of abstraction of other AST Nodes is the information about Fully Qualifi
 According to definition in \cite{8453132}, an example is the API \texttt{java.io.File}. In this API, we have \texttt{File} as PQN while we have \texttt{java.io.File} as FQN.
 
 \subsubsection{Source and Target Tokens for Other AST Nodes}
-We extract information about other AST Nodes to provide useful context for MIs prediction. In the source language, we extract all tokens of level 1 of abstraction for each AST Node, and extract all tokens in level 2 of that AST Node to put into target language. The implementation of the extraction is the Context Extractor module, which is called inside Train AST Visitor and Test AST Visitor. The rules for handling each type of AST are shown in Table \ref{tbl:StatType_rules}. In this Table, the \texttt{PQN()} and \texttt{FQN()} ran when the AST Visitor visit elements that have type. The function for extracting tokens \texttt{S()} and \texttt{D()} can be recursive to sub elements of a given AST Node.
-
-\begin{table}[]
-\tiny
-\caption{Rules for extract source and target side for AST Nodes }
-\centering
-\begin{tabular}{|l|Q|}
-\hline
-\textbf{AST Node }                    & \textbf{Syntax / Source()/ Destination()}                                                                                                 \\ \hline
-\multirow{3}{*}{\textbf{Instanceof Expr}}
-& E1 instanceof T1                                                               \\ \cline{2-2} 
-                &     S(E1) instanceof PQN(T1)                                                                    \\ \cline{2-2}
-                &    D(E1) instanceof FQN(T1) 
-                     \\
-                     \hline
-\multirow{3}{*}{\textbf{SimpleName}} & I1                                                               \\ \cline{2-2} 
-                &     PQN(I1)                                                                    \\ \cline{2-2}
-            &    FQN(I1) 
-                     \\
-                     \hline
-\end{tabular}
-
-\label{tbl:StatType_rules}
-
-\end{table}
+We extract information about other AST Nodes to provide useful context for MIs prediction. In the source language, we extract all tokens of level 1 of abstraction for each AST Node, and extract all tokens in level 2 of that AST Node to put into target language. The implementation of the extraction is the Context Extractor module, which is called inside Train AST Visitor and Test AST Visitor. 
 
 \subsubsection{Source and Target Tokens for Method Invocations}
  There are two types of information we want to embed for MI: the mapping between method name and the AST and the information relate to local context. For the first type of information, the source language will store information about token as level 1 of abstraction of MI, while the target language stores information about level 3 of abstraction of MI. Besides, information about local context will be stored by level 1 of abstraction in the source and level 2 of abstraction in the target language. A sequence of tokens for MI in Figure \ref{fig:mapping_expression} is shown in Figure \ref{fig:method_desc_example}.
- 
-\subsubsection{Method Invocation Abstraction}
-We get information about level 3 of abstraction in MI by proposing an algorithm in Listing \ref{lt:AlgorithmMethodAbstractor}. The \texttt{abstractMethodInvocation()} function is invoked when the Train AST Visitor or Test AST Visitor visit a MI and return the abstraction in level 3 by an instance of AST\_Level3 class. This function will use the child class of ASTVisitor called MICVisitor defined in Listing \ref{lt:AlgorithmMethodAbstractor} (Line \#45). This visitor will visit each element inside the MI, check and abstract if the element is a local entity. This visitor also stores other information about the code of AST, the list of required types for each local entities and the set of imported APIs. The handling strategy for each types of AST Node inside the MI is implemented in the \texttt{visitStructure()} function at Line \#61. After visiting and abstracting of MI to an \texttt{AST\_Level3}, this object is checked by the first four fields defined in line \#32 to line \#38 to see if its exist in the dictionary or not. If yes, it will have the id of the existing object in the dictionary. Otherwise, it will generate a new unique id and will be added to the dictionary. The dictionary stores information about abstraction at layer 3 of MIs in the training step. An example of  \texttt{AST\_Level3} object is shown in Figure \ref{fig:mapping_expression}.
-
-\begin{figure}[t]
+ \noindent
+\begin{figure}
     \centering
-      \begin{subfigure}{0.33\textwidth}
+      \begin{subfigure}{0.23\textwidth}
         \center{\includegraphics[width=\linewidth]
         {images/example_source_target.png}}
         \caption{Example of AST\_Level3 instance}
         \label{fig:mapping_expression} 
       \end{subfigure}
       \hfill
-      \begin{subfigure}[t]{0.3\textwidth}
+      \begin{subfigure}[t]{0.23\textwidth}
         \center{\includegraphics[width=\linewidth]
         {images/methodDescription_example.png}}
-        \caption{Example of tokens for source and target in Method Invocation}
+        \caption{Example of method name tokens in source and MI object tokens at level 3 in target language}
         \label{fig:method_desc_example}
       \end{subfigure}
-      \begin{subfigure}{0.35\textwidth}
+      \hfill
+      \begin{subfigure}{0.5\textwidth}
         \center{\includegraphics[width=\linewidth]
         {images/example_in.png}}
-        \caption{\label{fig:example_in} Example of query in configuration 1 for code snippet in \cite{id:IntrinsicAndroidExample}}
+        \caption{\label{fig:example_in} Example of inference from method name to MI at level 3 for code snippet in \cite{id:IntrinsicAndroidExample}}
       \end{subfigure}
 \caption{
 \label{fig:CombineImageOfASTLevel3}%
-Representation of ASTLevel3}
+Representations of AST\_Level3}
 \end{figure}
 
+\subsubsection{Method Invocation Abstraction}
 \input{algorithmForMethodAbstractor.tex}
+We get information about level 3 of abstraction in MI by proposing an algorithm in Listings \ref{lt:AlgorithmMethodAbstractor} and \ref{lt:AlgorithmMethodAbstractorPartB}. The \texttt{abstractMethodInvocation()} function is invoked when the Train AST Visitor or Test AST Visitor visit a MI and return the abstraction in level 3 by an instance of AST\_Level3 class. This function will use the child class of ASTVisitor called InvocAbstractVisitor defined in Listing \ref{lt:AlgorithmMethodAbstractor} (Line \#45). This visitor will visit each element inside the MI, check and abstract if the element is a local entity. This visitor also stores other information about the code of AST, the list of required types for each local entities and the set of imported APIs. The handling strategy for each types of AST Node inside the MI is implemented in the \texttt{visitStructure()} function in  Listing \ref{lt:AlgorithmMethodAbstractorPartB}(\#32). After visiting and abstracting of MI to an \texttt{AST\_Level3}, this object is checked by the first four fields defined in Listing \ref{lt:AlgorithmMethodAbstractorPartB}(\#1-\#10)  to see if its exist in the dictionary or not. If yes, it will have the id of the existing object in the dictionary. Otherwise, it will generate a new unique id and will be added to the dictionary. The dictionary stores information about abstraction at layer 3 of MIs in the training step. An example of  \texttt{AST\_Level3} object is shown in Figure \ref{fig:mapping_expression}.
+
+
 \subsection{SMT}
 To learn the mapping between source and target language, we apply the PBMT \cite{Green2014}. This approach works based on the ability to learn from two models: the language model and the translation model.
 \subsubsection{Language Model}

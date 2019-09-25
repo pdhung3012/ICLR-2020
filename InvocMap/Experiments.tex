@@ -125,12 +125,9 @@ To do this experiment, we collect the data as code snippets from Online Forums (
 
 The result for extrinsic evaluation is shown in Table \ref{tbl:IntrinsicAndExtrinsic}. We see that with level 1, since the case that only method names are provided in the source language, our approach stills predict correctly 62.54\% in precision. With the configuration levels that developers add more information, the precision increases to 86.88\%. For each library, we achieved the highest accuracy on GWT and lowest on Hibernate with input as detail information like configuration 3. This result seems reasonable, since Hibernate is a bigger library compared to GWT but it is not as popular as JDK, causes the variety of ASTs for APIs in this library.
 
-
-
-
 \subsection{RQ3: How well InvocMap can perform to predict ambiguous method names?}
 
-In this evaluation, we analyze the relation of the expression prediction result relates to the number of mapping of each method name from the parallel corpus. We use data collected for the Intrinsic Evaluation with configuration 3, means each method names are embedded with local entities and local terms in the source language. The result is shown in Table \ref{tbl:Analyze1}.
+In this evaluation, we analyze the relation of the expression prediction result relates to the number of mapping of each method name from the parallel corpus. We use data collected for the Intrinsic Evaluation with configuration 3. The result is shown in Table \ref{tbl:Analyze1}, which shows that from the number of method name that has more than 100 mappings in the parallel corpus are about 72\% of the total data. It proves the complexity of kinds of implementation for each method names. The total precision tends to decrease from 96.47 \% to 87.68\%. This proves the ability to generate expression from input queries.
 
 \begin{table}[]
 \tiny
@@ -154,7 +151,7 @@ Total          & 96.47\%     & 93.07\%     & 92.05\%     & 89.41\%     & 87.68\%
 
 \label{tbl:Analyze1}
 \end{table}
-The result shows that from the number of method name that has more than 100 mappings in the parallel corpus are about 72\% of the total data. It proves the complexity of kinds of implementation for each method names. The total precision tends to decrease from 96.47 \% to 87.68\%. This proves the ability to generate expression from input queries.
+
 
 
 

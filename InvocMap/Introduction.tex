@@ -3,7 +3,13 @@ Writing code is a challenge for non-experienced software developers. To write th
 
 To help developers with interacting and analyzing a given Java source code snippet, Java Development Tool (JDT) library defines a list of Abstract Syntax Tree (AST) Node types \cite{id:ASTDocumentation}. With the list of these AST Node types, JDT can be able to interact with the structure of each elements inside the source code. Method invocation, which is defined as sub-type of Expression, is one of the fundamental AST Node that developers need to implement. MI has been used to make Application Programming Interface (API) calls from other libraries or from other methods inside a Java project.  The structure of a syntactically correct MI contains method name, receiver and the list of arguments which could be empty. Since receiver and arguments are types of expression \cite{id:ASTDocumentation}, the structure of an MI could be complicated as a deep AST tree since expression can be composed by different types of AST Node including MI. 
 
-\begin{lstlisting}[basicstyle=\tiny,caption={Example of invocation of API \texttt{java.awt.Rectangle.set()} in \cite{id:Example11Complicate}},label={Example11Complicate}]
+
+An example of a complicated MI is shown in Listing \ref{Example11Complicate}. In this Listing, the outside MI contains four nested MI in its implementation. Besides, there are 5 positions that requires local variables inside the expression. Type casting to integer is embedded to this MI to provide a semantically correct MI. This MI is used along with other calculated MIs inside the body of method, providing the a specific surrounding context for this MI. Certainly, though the outer method name \texttt{set} is just one word, the respected method invocation is a deep AST tree.
+
+The representation of method invocation is also depending on code context. Consider examples 2A and 2B on Listing  \ref{ex:Example12A} and Listing \ref{ex:Example12B}. These Listings show the implementation of API \texttt{android.content.Intent.getBooleanExtra()}. Although 2 MIs share the same information about context of using the same local variable \texttt{Intent} and the \texttt{false} boolean literal, they are differ in the structure of AST. Since the MI in Listing \ref{ex:Example12A} associates with the action of add or remove an application package from an android device, the MI on Listing \ref{ex:Example12B} associates with actions of network status checking. The difference in contexts brings 2 MIs, which represents in 2 static Field Accesses \texttt{Intent.EXTRA\_REPLACING} and \texttt{ConnectivityManager.EXTRA\_NO\_CONNECTIVITY}. \\
+\noindent
+\begin{minipage}[c]{0.3\textwidth}
+\begin{lstlisting}[basicstyle=\tiny,caption={Example of invocation of API \texttt{set()} in \cite{id:Example11Complicate}},label={Example11Complicate}]
  public void setOffsets(int newHorizontalOffset, int newVerticalOffset) {
     ...
         if (mView != null) {
@@ -15,26 +21,23 @@ To help developers with interacting and analyzing a given Java source code snipp
     ...
 }
 \end{lstlisting}
-
-An example of a complicated MI is shown in Listing \ref{Example11Complicate}. In this Listing, the outside MI contains four nested MI in its implementation. Besides, there are 5 positions that requires local variables inside the expression. Type casting to integer is embedded to this MI to provide a semantically correct MI. This MI is used along with other calculated MIs inside the body of method, providing the a specific surrounding context for this MI. Certainly, though the outer method name \texttt{set} is just one word, the respected method invocation is a deep AST tree.
-
-The representation of method invocation is also depending on code context. Consider examples 2A and 2B on Listing  \ref{ex:Example12A} and Listing \ref{ex:Example12B}. These Listings show the implementation of API \texttt{android.content.Intent.getBooleanExtra()}. Although 2 MIs share the same information about context of using the same local variable \texttt{Intent} and the \texttt{false} boolean literal, they are differ in the structure of AST. Since the MI in Listing \ref{ex:Example12A} associates with the action of add or remove an application package from an android device, the MI on Listing \ref{ex:Example12B} associates with actions of network status checking. The difference in contexts brings 2 MIs, which represents in 2 static Field Accesses \texttt{Intent.EXTRA\_REPLACING} and \texttt{ConnectivityManager.EXTRA\_NO\_CONNECTIVITY}.   
-
-\begin{lstlisting}[basicstyle=\tiny,caption={Example 2A of invocation of API \texttt{android.content.Intent.getBooleanExtra()} in \cite{id:Example12A}},label={ex:Example12A},]
+\end{minipage}\hfill
+\begin{minipage}[c]{0.3\textwidth}
+\begin{lstlisting}[basicstyle=\tiny,caption={Example 2A of API \texttt{getBooleanExtra()} in \cite{id:Example12A}},label={ex:Example12A},]
  public void onReceive(Context context, Intent intent) {
     ...
     if ((Intent.ACTION_PACKAGE_REMOVED.equals(action) ||
-            Intent.ACTION_PACKAGE_ADDED.equals(action))
+            Intent.ACTION_PACKAGE
+            _ADDED.equals(action))
             && !@intent.getBooleanExtra(Intent.EXTRA_REPLACING, false)@) {
         ...
     }
 }
 \end{lstlisting}
 
-
-
-
-\begin{lstlisting}[basicstyle=\tiny,caption={Example 2B of invocation of API \texttt{android.content.Intent.getBooleanExtra()} in \cite{id:Example12B}},label={ex:Example12B}]
+\end{minipage}\hfill
+\begin{minipage}[c]{.3\textwidth}
+\begin{lstlisting}[basicstyle=\tiny,caption={Example 2B of API \texttt{getBooleanExtra()} in \cite{id:Example12B}},label={ex:Example12B}]
 public void onReceive(Context context, Intent intent) {
     ...
     if (activeNetwork == null) {
@@ -47,6 +50,14 @@ public void onReceive(Context context, Intent intent) {
     
 }
 \end{lstlisting}
+\end{minipage}\hfill
+
+
+
+
+
+
+
 
 From these examples, we see that implementing an effective method invocation requires strong background and experiences from developers. Even two Method Invocations that belongs to the same API and share the same context of local variables and literal stills have ambiguous in the way of implementation like Listing \ref{ex:Example12A} and Listing \ref{ex:Example12B}. These challenges hinders the ability of writing a appropriate MI and cause developers to spend time to remember or finding the correct structure of AST in MI for software development.
 
