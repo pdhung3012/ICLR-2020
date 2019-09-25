@@ -7,7 +7,7 @@ AST_Level3 abstractMethodInvocation(
 	AST_Level3 result=new AST_Level3(mi);		
 	visitor.result=result;
 	
-	//visit receiver if exist
+    // visit receiver if exist 
 	Expression receiverExpr=getReceiver(mi);		
 	if(receiverExpr not null)
 		visitor.visit(receiverExpr);
@@ -34,7 +34,7 @@ AST_Level3 abstractMethodInvocation(
 \begin{minipage}[c]{0.45\textwidth}
 \begin{lstlisting}[basicstyle=\tiny,caption={Definition of AST\_Level3 and InvocAbstractVisitor},label={lt:AlgorithmMethodAbstractorPartB}]
 class AST_Level3 {
-	// field to store AST in level 3
+	// Fields to store AST in level 3
 	strCode : String;
 	// Other informations
 	listArguments : List<Type>;
