@@ -1,10 +1,9 @@
 \section{Evaluation}
-\subsection{Data Preparation and Metrics}
-To do the evaluation, we select corpus on six well-known libraries. They are Java Development Kit (JDK), Android, GWT, Joda-Time, Hibernate, and XStream. These libraries were selected to generate the corpus for other research works (\cite{8453132,Subramanian:2014:LAD:2568225.2568313}). To generate corpus, we select 1000 highest stars Java projects from Github (\cite{id:Github}), which have most files used API from libraries in Table \ref{tbl:DataPreparation}. For each Java project, InvocMap parses each Java source files by an the Train ASTVisitor module on Figure \ref{fig:ApproachOverview}. We apply our solution using Phrasal \cite{Green2014}.The number of methods we collect is shown in Table \ref{tbl:DataPreparation}. 
+\textbf{Data Preparation.} To do the evaluation, we select corpus on six well-known libraries. They are Java Development Kit (JDK), Android, GWT, Joda-Time, Hibernate, and XStream. These libraries were selected to generate the corpus for other research works (\cite{8453132,Subramanian:2014:LAD:2568225.2568313}). To generate corpus, we select 1000 highest stars Java projects from Github (\cite{id:Github}), which have most files used API from libraries in Table \ref{tbl:DataPreparation}. For each Java project, InvocMap parses each Java source files by an the Train ASTVisitor module on Figure \ref{fig:ApproachOverview}. The number of pairs respected to each method body we collect is shown in Table \ref{tbl:DataPreparation}. 
 
 \begin{table}[]
 \tiny
-\caption{Data and configurations of evaluation}
+\caption{Corpus, configurations and RQ3 result}
 \label{tbl:CombineConfigTables}
 \begin{subtable}[t]{0.1\textwidth}
 \centering
@@ -71,26 +70,10 @@ Total          & 96.47\%     & 93.07\%     & 92.05\%     & 89.41\%     & 87.68\%
 \hfill
 \end{table}
 
+\textbf{Training and Testing Configuration.} To train the SMT model, we use a high-end computer with core-i7 Intel processor and use 32 GB of memory. We apply our solution using Phrasal \cite{Green2014}. We allocate Phrasal with phrase length equals to 7. The total training time requires about 6 hours. For testing, we evaluate the ability of translation from a sequence of method names to ASTs in level 3 of abstraction. We simulate 3 configurations sequences of method names regarding to its local context defined in Table \ref{tbl:Config2}. We can see the local context provided for method names is increasing from configurations at level 1 to level 3. At level 1, the input for translation contains only method names with the code context in the source language for translation. It simulates the case that developers write a list of method names inside the code environment. At level 2, information about partial class name of types of local entities is attached along with each method names. This case simulates the case developers remember and write method name and local variables (s)he needs to implement the MI but (s)he doesn't remember the structure of AST. At level 3, each method names in the source language will be attached the information about local entities and half of words appeared inside the MI. This case simulates the case that developers remember some words inside the MI along with local entities. 
 
 
-
-
-
-
-
-
-
-\subsubsection{Training Configuration} To train the SMT model, we use a high-end computer with core-i7 Intel processor and use 32 GB of memory. We allocate Phrasal with phrase length equals to 7. The total training time requires about 6 hours.
-
-\subsubsection{Test Configuration}
-We evaluate the ability of translation from a sequence of method names to ASTs in level 3 of abstraction. We simulate 3 configurations sequences of method names regarding to its local context defined in Table \ref{tbl:Config2}. 
-
-
-
-We can see the local context provided for method names is increasing from configurations at level 1 to level 3. At level 1, the input for translation contains only method names with the code context in the source language for translation. It simulates the case that developers write a list of method names inside the code environment. At level 2, information about partial class name of types of local entities is attached along with each method names. This case simulates the case developers remember and write method name and local variables (s)he needs to implement the MI but (s)he doesn't remember the structure of AST. At level 3, each method names in the source language will be attached the information about local entities and half of words appeared inside the MI. This case simulates the case that developers remember some words inside the MI along with local entities. In Table \ref{tbl:Config2}, at level 3 developer input \texttt{println} as method name, 2 integers as variables and an operator \texttt{+}. The input for predicting the MI is \texttt{int\#var int\#var println\#identifier +\#term}. And the translation engine needs to return as MI respected to \texttt{println\#identifier}.
-
-\subsubsection{Metrics}
-We evaluate the correct inference of method names. Information about tokens of method name can be recognized by the annotation \texttt{\#identifier} for the source, and the expected results can be recognized by prefix \texttt{"E-Total"} of tokens in the target. We use Precision and Recall as 2 metrics for the evaluation. We category cases of predicting tokens of method name: True Positive (TP)- means the prediction is correct; False Positive (FP) - means the expected expression is in the training corpus but the translated expression is different and False Negative (FN) - means the expected expression is out of vocabulary (OOV). Out of Vocabulary is the case that the method name token does not in the corpus (Out of Source - OOS) or the expected expression token does not appear in the target corpus (Out of Target - OOT). 
+\textbf{Metrics.} We evaluate the correct inference of method names. Information about tokens of method name can be recognized by the annotation \texttt{\#identifier} for the source, and the expected results can be recognized by prefix \texttt{"E-Total"} of tokens in the target. We use Precision and Recall as 2 metrics for the evaluation. Out of Vocabulary (OOV) result is the case that the method name token does not in the corpus (Out of Source - OOS) or the expected expression token does not appear in the target corpus (Out of Target - OOT). 
  
 \subsection{Research Question (RQ) 1: How InvocMap can perform to predict the implementation with Intrinsic Data?}
 
@@ -154,9 +137,7 @@ We study an example in the Intrinsic Evaluation in Figure \ref{fig:example_in}. 
 
 \subsection{RQ2: How well InvocMap can perform to predict the implementation with Extrinsic Data?}
 
-To do this experiment, we collect the data as code snippets from Online Forums (\cite{id:StackOverflow,id:ProgramCreek,id:GeeksForGeeks}). To do this, a Software Engineer who has 5 years of experience in Java programming was hired to collect code snippets from 120 posts in Online Forums, with 20 posts for each library in Table \ref{tbl:DataPreparation}. Each code snippets are required to have the MIs of 6 libraries: JDK, Android, GWT, Joda-Time, Hibernate, and XStream. We run our Test ASTVisitor module to extract the source tokens with embedding MIs at 3 levels and use the SMT model learned from our parallel corpus for the prediction.
-
-The result for extrinsic evaluation is shown in Table \ref{tbl:IntrinsicAndExtrinsic}. We see that with level 1, since the case that only method names are provided in the source language, our approach stills predict correctly 62.54\% in precision. With the configuration levels that developers add more information, the precision increases to 86.88\%. For each library, we achieved the highest accuracy on GWT and lowest on Hibernate with input as detail information like configuration 3. This result seems reasonable, since Hibernate is a bigger library compared to GWT but it is not as popular as JDK, causes the variety of ASTs for APIs in this library.
+To do this experiment, we collect the data as code snippets from Online Forums (\cite{id:StackOverflow,id:ProgramCreek,id:GeeksForGeeks}). To do this, a Software Engineer who has 5 years of experience in Java programming was hired to collect code snippets from 120 posts in Online Forums, with 20 posts for each library in Table \ref{tbl:DataPreparation}. The result for extrinsic evaluation is shown in Table \ref{tbl:IntrinsicAndExtrinsic}. We see that with level 1, since the case that only method names are provided in the source language, our approach stills predict correctly 62.54\% in precision. With the configuration levels that developers add more information, the precision increases to 86.88\%. For each library, we achieved the highest accuracy on GWT and lowest on Hibernate with input as detail information like configuration 3. This result seems reasonable, since Hibernate is a bigger library compared to GWT but it is not as popular as JDK, causes the variety of ASTs for APIs in this library.
 
 \subsection{RQ3: How well InvocMap can perform to predict ambiguous method names?}
 
