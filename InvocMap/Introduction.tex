@@ -9,7 +9,7 @@ An example of a complicated MI is shown in Listing \ref{Example11Complicate}. In
 The representation of method invocation is also depending on code context. Consider examples 2A and 2B on Listing  \ref{ex:Example12A} and Listing \ref{ex:Example12B}. These Listings show the implementation of API \texttt{android.content.Intent.getBooleanExtra()}. Although 2 MIs share the same information about context of using the same local variable \texttt{Intent} and the \texttt{false} boolean literal, they are differ in the structure of AST. Since the MI in Listing \ref{ex:Example12A} associates with the action of add or remove an application package from an android device, the MI on Listing \ref{ex:Example12B} associates with actions of network status checking. The difference in contexts brings 2 MIs, which represents in 2 static Field Accesses \texttt{Intent.EXTRA\_REPLACING} and \texttt{ConnectivityManager.EXTRA\_NO\_CONNECTIVITY}. \\
 \noindent
 \begin{minipage}[c]{0.3\textwidth}
-\begin{lstlisting}[basicstyle=\tiny,caption={Example of invocation of API \texttt{set()} in \cite{id:Example11Complicate}},label={Example11Complicate}]
+\begin{lstlisting}[basicstyle=\tiny,caption={Example in \cite{id:Example11Complicate}},label={Example11Complicate}]
  public void setOffsets(int newHorizontalOffset, int newVerticalOffset) {
     ...
         if (mView != null) {
@@ -23,7 +23,7 @@ The representation of method invocation is also depending on code context. Consi
 \end{lstlisting}
 \end{minipage}\hfill
 \begin{minipage}[c]{0.3\textwidth}
-\begin{lstlisting}[basicstyle=\tiny,caption={Example 2A of API \texttt{getBooleanExtra()} in \cite{id:Example12A}},label={ex:Example12A},]
+\begin{lstlisting}[basicstyle=\tiny,caption={Example 2A in \cite{id:Example12A}},label={ex:Example12A},]
  public void onReceive(Context context, Intent intent) {
     ...
     if ((Intent.ACTION_PACKAGE_REMOVED.equals(action) ||
@@ -37,7 +37,7 @@ The representation of method invocation is also depending on code context. Consi
 
 \end{minipage}\hfill
 \begin{minipage}[c]{.3\textwidth}
-\begin{lstlisting}[basicstyle=\tiny,caption={Example 2B of API \texttt{getBooleanExtra()} in \cite{id:Example12B}},label={ex:Example12B}]
+\begin{lstlisting}[basicstyle=\tiny,caption={Example 2B in \cite{id:Example12B}},label={ex:Example12B}]
 public void onReceive(Context context, Intent intent) {
     ...
     if (activeNetwork == null) {

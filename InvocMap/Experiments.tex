@@ -2,17 +2,17 @@
 \subsection{Data Preparation and Metrics}
 To do the evaluation, we select corpus on six well-known libraries. They are Java Development Kit (JDK), Android, GWT, Joda-Time, Hibernate, and XStream. These libraries were selected to generate the corpus for other research works (\cite{8453132,Subramanian:2014:LAD:2568225.2568313}). To generate corpus, we select 1000 highest stars Java projects from Github (\cite{id:Github}), which have most files used API from libraries in Table \ref{tbl:DataPreparation}. For each Java project, InvocMap parses each Java source files by an the Train ASTVisitor module on Figure \ref{fig:ApproachOverview}. We apply our solution using Phrasal \cite{Green2014}.The number of methods we collect is shown in Table \ref{tbl:DataPreparation}. 
 
-\begin{table}[htbp]
+\begin{table}[]
 \tiny
 \caption{Data and configurations of evaluation}
 \label{tbl:CombineConfigTables}
-\begin{subtable}[t]{0.48\textwidth}
+\begin{subtable}[t]{0.1\textwidth}
 \centering
-\caption{Corpus statistic}
+\caption{Corpus}
 \label{tbl:DataPreparation}
 \begin{tabular}{|l|l|}
 \hline
-\textbf{Library }  & \textbf{Num of methods} \\ \hline
+\textbf{Library }  & \textbf{Pairs} \\ \hline
 JDK       & 820386         \\ \hline
 GWT       & 170435         \\ \hline
 Joda-Time & 91072          \\ \hline
@@ -21,19 +21,21 @@ Hibernate & 149887         \\ \hline
 Xstream   & 159170         \\ \hline
 \end{tabular}
 \end{subtable}
-\begin{subtable}[t]{0.48\textwidth}
+\hfill
+\begin{subtable}[t]{0.2\textwidth}
+\centering
 \tiny
-\flushright
-\caption{Configuration Setting}
+\caption{Configurations}
 \label{tbl:Config2}
-\begin{tabular}{|l|Q|}
+\begin{tabular}{|l|l|}
 \hline
                      & \textbf{Meaning / Example    }                                                                                              \\ \hline
 \multirow{2}{*}{\textbf{Config 1}} & Only method name                                                               \\ \cline{2-2} 
                      &  println                                                                   \\ \hline
 \multirow{2}{*}{\textbf{Config 2}} &  method name and variables                                                                                       \\ \cline{2-2} 
                          & println 10 5                                        \\ \hline
-\multirow{2}{*}{\textbf{Config 3}} & method name, variables and some suggested words                                                                                 \\ \cline{2-2} 
+\multirow{3}{*}{\textbf{Config 3}} & method name, variables and                                                                                  \\ 
+ & some suggested words \\\cline{2-2}
                &      println 10 + 5       
                      \\ \hline
 Expected &                          
@@ -42,8 +44,39 @@ System.out.println(\#+\#)
                      \\ \hline
 \end{tabular}
 \end{subtable}
+\hfill
+\begin{subtable}[t]{0.5\textwidth}
+\tiny
+\flushright
+\caption{RQ 3 result}
+\begin{tabular}{|l|l|l|l|l|l|}
+\hline
+              
+\textbf{Num }& \textbf{1-10}        & \textbf{11-20}       & \textbf{21-50}       & \textbf{50-100}      & \textbf{\textgreater{}100}     \\
+\textbf{of mapping }&         &        &        &       &      \\ \hline
+\textbf{Percentage  }   & 12.30\%     & 4.20\%      & 5.96\%      & 4.90\%      & 72.64\%               \\ \hline
+\textbf{Accuracy }      & \textbf{Prec}        & \textbf{Prec}        & \textbf{Prec}        & \textbf{Prec}        & \textbf{Prec}                  \\ \hline
+GWT            & 96.58\%     & 86.83\%     & 88.71\%     & 86.89\%     & 86.59\%               \\ \hline
+Joda-Time      & 93.38\%     & 89.64\%     & 76.19\%     & 69.43\%     & 74.11\%               \\ \hline
+JDK            & 98.14\%     & 96.02\%     & 95.26\%     & 91.92\%     & 89.06\%               \\ \hline
+Android        & 96.24\%     & 92.51\%     & 90.63\%     & 89.08\%     & 82.58\%               \\ \hline
+Hibernate      & 92.61\%     & 87.60\%     & 87.50\%     & 85.47\%     & 78.98\%               \\ \hline
+Xstream        & 97.78\%     & 91.01\%     & 78.81\%     & 81.02\%     & 80.80\%               \\ \hline
+Total          & 96.47\%     & 93.07\%     & 92.05\%     & 89.41\%     & 87.68\%               \\ \hline
+\end{tabular}
 
+\label{tbl:Analyze1}
+\end{subtable}
+
+\hfill
 \end{table}
+
+
+
+
+
+
+
 
 
 
@@ -129,28 +162,7 @@ The result for extrinsic evaluation is shown in Table \ref{tbl:IntrinsicAndExtri
 
 In this evaluation, we analyze the relation of the expression prediction result relates to the number of mapping of each method name from the parallel corpus. We use data collected for the Intrinsic Evaluation with configuration 3. The result is shown in Table \ref{tbl:Analyze1}, which shows that from the number of method name that has more than 100 mappings in the parallel corpus are about 72\% of the total data. It proves the complexity of kinds of implementation for each method names. The total precision tends to decrease from 96.47 \% to 87.68\%. This proves the ability to generate expression from input queries.
 
-\begin{table}[]
-\tiny
-\centering
-\caption{Analyze Relation between Accuracy and Num of distinct mapping of Config 3}
-\begin{tabular}{|l|l|l|l|l|l|}
-\hline
-              
-\textbf{Num }& \textbf{1-10}        & \textbf{11-20}       & \textbf{21-50}       & \textbf{50-100}      & \textbf{\textgreater{}100}     \\
-\textbf{of mapping }&         &        &        &       &      \\ \hline
-\textbf{Percentage  }   & 12.30\%     & 4.20\%      & 5.96\%      & 4.90\%      & 72.64\%               \\ \hline
-\textbf{Accuracy }      & \textbf{Prec}        & \textbf{Prec}        & \textbf{Prec}        & \textbf{Prec}        & \textbf{Prec}                  \\ \hline
-GWT            & 96.58\%     & 86.83\%     & 88.71\%     & 86.89\%     & 86.59\%               \\ \hline
-Joda-Time      & 93.38\%     & 89.64\%     & 76.19\%     & 69.43\%     & 74.11\%               \\ \hline
-JDK            & 98.14\%     & 96.02\%     & 95.26\%     & 91.92\%     & 89.06\%               \\ \hline
-Android        & 96.24\%     & 92.51\%     & 90.63\%     & 89.08\%     & 82.58\%               \\ \hline
-Hibernate      & 92.61\%     & 87.60\%     & 87.50\%     & 85.47\%     & 78.98\%               \\ \hline
-Xstream        & 97.78\%     & 91.01\%     & 78.81\%     & 81.02\%     & 80.80\%               \\ \hline
-Total          & 96.47\%     & 93.07\%     & 92.05\%     & 89.41\%     & 87.68\%               \\ \hline
-\end{tabular}
 
-\label{tbl:Analyze1}
-\end{table}
 
 
 
